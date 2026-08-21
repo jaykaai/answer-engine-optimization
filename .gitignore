@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# OpenWolf 运行时状态（每次会话都会变动，不入版本库）
+.wolf/token-ledger.json
+.wolf/cron-state.json
+.wolf/suggestions.json
+.wolf/hooks/_session.json
+.wolf/designqc-report.json
+.wolf/designqc-captures/
+.wolf/backups/
+.wolf/logs/
