@@ -2,7 +2,7 @@
 
 > OpenWolf's learning memory. Updated automatically as the AI learns from interactions.
 > Do not edit manually unless correcting an error.
-> Last updated: 2026-08-21
+> Last updated: 2026-08-22
 
 ## User Preferences
 
@@ -10,13 +10,68 @@
 
 ## Key Learnings
 
-- **Project:** answer-engine-optimization
+- **Project:** answer-engine-optimization — 这是一个**学习型仓库**，不是代码项目。核心产出是知识与实验记录，不是软件。
+- 教学模式：按 `AEO学习计划.md` 的 8 周节奏拆成单课，**每次只讲一课**，讲透原理 + 留可验证的动手作业，等用户反馈作业结果后再进下一课。
+- 进度记录在 `学习进度.md`（课次状态、核心结论、作业清单、学员档案）。每讲完一课必须更新。
+- 授课主体在对话中交付（用户直接读），文件只存精简结论供复习，避免重复。
+
+## User Preferences
+
+- 授课要有实质洞察和可执行验证，不要复述资源清单链接。链接仅在深挖时给出。
+- **[2026-08-21] 要实战形式：一步一步边做边教。** 不要先讲完理论再实践。教法应为：给一个可立即执行的动作 → 用真实数据说明原理 → 产出可复用的文件 → 下一步。理论只在动手卡住的那一刻插入。
+- **[2026-08-23] 学习优先于效果验证。** 用户学习 GEO 是最终目的，网站/知乎是学习手段和实验室，不是 KPI。不要拿"还没被 AI 引用"催促用户，等收录/等引用期间应继续推进技术学习，而不是干等。
+
+## 实战路线（2026-08-22 调整为双轨）
+
+仓库结构已拆分为 `cn/` 和 `en/` 两个并行分支。**当前先做中国版**，完成后切回国外版。
+
+### 中国版 8 步闭环
+
+① 侦察（中国 AI 引擎引用行为）→ ② 建站/选阵地 → ③ 挖中文真实问题 → ④ 按规格写中文内容 → ⑤ 手写百度兼容 JSON-LD → ⑥ robots.txt + sitemap + 部署 → ⑦ 百度搜索资源平台提交 → ⑧ 2-4 周后测中国 AI 引擎是否引用并迭代
+
+### 中国 AEO 关键信息（2026-08-22 建立，持续更新）
+
+- **用户实测数据优先于我的假设。** [2026-08-21] 我曾断言"知乎是中国AEO超级节点"，但用户实测秘塔/豆包/千问搜"GEO"均**未引用知乎** → 已推翻该假设。正确认知：中国 AI 搜索对技术性新话题优先引用**原创文章**（自建站如 louishe.com、科技媒体），而非问答平台。平台选择必须用实测验证，不能沿用国外经验。
+- 中国行业术语是 **GEO（生成式引擎优化）**，不是 AEO（答案引擎优化）。搜"答案引擎优化"几乎无中文结果（秘塔只能引用英文站翻译）；搜"GEO 生成式引擎优化"有中文结果。写内容用 GEO。
+- 自足段落规则（chunk 脱离标题后仍独立成文）在中国完全成立——实测 louishe.com 被引用段落："生成引擎优化 (GEO) 是一种优化内容的实践，使其在 ChatGPT、Claude、Gemini 和 Perplexity 等生成式 AI 平台中显示为权威来源或直接响应。" 问句H2+直答首句+自带主语全称。
+- 中国 AI 搜索的底层数据源大部分依赖百度索引 → 做好百度SEO是AEO的前提
+- 百度百科是实体建设基础，但创建门槛高（审核严格）
+- 微信公众号是封闭生态，百度不索引，对 AEO 无效
+- 百度对 JS 渲染能力有限，依赖原始 HTML → 自建站用纯静态 HTML（大道至简）
+- 秘塔AI搜索（metaso.cn）引用标注最清晰，是 AEO 观测主窗口；豆包/千问/秘塔对"GEO"话题均不引用知乎
+- 国产 AI 爬虫：Baiduspider、bytespider（字节）；另需放行 GPTBot、OAI-SearchBot、PerplexityBot、ClaudeBot、Claude-Web
+
+### 业务定位（2026-08-22 用户确认的最终方向）
+
+业务模式 = **自举式 GEO 专家**：
+- 学 GEO → 写 GEO 内容 → 让 AI 引用你的内容 → "AI 引用你" = 你懂 GEO 的铁证 → 客户搜 GEO 时看到你被引用 → 自然找上门
+- 客户：想要"让 AI 推荐自己产品"的中小商家/商户
+- 服务：帮商户让 AI 引擎引用他们的商品信息（GEO 代运营/咨询）
+- 用户背景：计算机专业，体制内不做技术，对 AI 智能体应用感兴趣，计划做智能体自媒体
+- 平台策略：自建站为主（实测证明自建站可被引用），知乎作为分发渠道（不依赖被引用）
+- 部署决策：实名域名（阿里云/腾讯云注册）+ GitHub Pages（免备案），一期不用国内服务器
+
+### 大道至简建站原则（2026-08-22 确定）
+
+- 目标是给 LLM 引用，不是给人看 → **纯静态 HTML 完全足够**
+- HTML 体积应在 ~KB 级（对照 Ahrefs 850KB 是反面标本）
+- 网站文件在 `site/` 目录：index.html、文章页、robots.txt、sitemap.xml
+- robots.txt 全部放行（含 AI 爬虫），无屏蔽理由
+- JSON-LD 手写：Article + Person + Organization + sameAs
+
+### 国外版关键实测结论（已存档，不必重新采集）
+
+- Moz 只屏蔽 `GPTBot`（训练），放行搜索类爬虫 → 训练/搜索爬虫必须分开决策
+- Ahrefs、Semrush、Backlinko 的 robots.txt 对 AI 爬虫 0 条规则（全放行）
+- Ahrefs HTML 850KB vs Semrush 218KB；Ahrefs 的 h2 被 CSS-in-JS 包装层淹没，是反面标本
+- 自足段落（self-contained chunk）是最易漏的规则：直答句必须自带主语全称，因 chunk 被摘出时已脱离标题
 
 ## Do-Not-Repeat
 
-<!-- Mistakes made and corrected. Each entry prevents the same mistake recurring. -->
-<!-- Format: [YYYY-MM-DD] Description of what went wrong and what to do instead. -->
+- [2026-08-21] 断言"知乎是中国 AEO 超级节点"但**未经验证**，被用户实测数据推翻（秘塔/豆包/千问均未引用知乎）。教训：**给建议前必须用用户或自己的实测数据验证，不要沿用国外经验推断中国生态。**
+- [2026-08-21] 建议用户做"AI 智能体应用实战"定位，但用户指出体制内没有真实业务场景、无法持续输出。教训：**建议定位前先考虑用户的资源约束和持续输出能力。**
 
 ## Decision Log
 
-<!-- Significant technical decisions with rationale. Why X was chosen over Y. -->
+- [2026-08-21] 部署方案选 **GitHub Pages + 自定义域名（阿里云/腾讯云注册）+ 免备案**。理由：零维护、免费、无需备案、自定义域名是 AI 实体的基础。中期若有国内收录需求再评估香港服务器。
+- [2026-08-21] 建站用**手写纯静态 HTML**，不引入框架。理由：目标是让 LLM 读 HTML 而非给人看，静态 HTML 即最小充分方案；第一篇手写以理解本质，篇数增多后再评估 Astro 批量生成。

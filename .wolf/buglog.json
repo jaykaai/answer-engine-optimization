@@ -1,4 +1,37 @@
 {
   "version": 1,
-  "bugs": []
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-08-23T04:59:44.379Z",
+      "error_message": "Incorrect value in code",
+      "file": "site/index.html",
+      "root_cause": "Had \"geo-shi-shen-me.html\"",
+      "fix": "Changed to \"ru-he-rang-bai-du-shou-lu.html\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "html"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-23T04:59:44.379Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-08-23T04:59:58.267Z",
+      "error_message": "Incorrect value in code",
+      "file": "cn/学习进度.md",
+      "root_cause": "Had \"你的名字/你的域名/你的知乎ID\"",
+      "fix": "Changed to `site/geo-shi-shen-me.html`",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-23T04:59:58.267Z"
+    }
+  ]
 }
