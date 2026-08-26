@@ -156,9 +156,149 @@ function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// ── 解析 annotate 代码块 ──
+// 把 ```annotate ... ``` 代码块的内容解析成结构化批注对象
+function parseAnnotateBlock(codeContent) {
+  // marked 会把代码块内容转义（& < >），先还原
+  const raw = codeContent
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+
+  const result = {};
+  const lines = raw.split('\n');
+  let currentKey = null;
+
+  for (const line of lines) {
+    // 多行值（YAML 的 | 块，这里用 key: 后续缩进行表示多行）
+    const kvMatch = line.match(/^(\w+):\s*(.*)$/);
+    if (kvMatch) {
+      currentKey = kvMatch[1];
+      let val = kvMatch[2].trim();
+      if (val) {
+        result[currentKey] = val;
+      } else {
+        // 空值，后续行是多行内容
+        result[currentKey] = [];
+      }
+    } else if (currentKey && Array.isArray(result[currentKey])) {
+      // 多行值，追加
+      if (line.trim()) {
+        result[currentKey].push(line);
+      }
+    }
+  }
+
+  // 把多行值数组拼回字符串
+  for (const key of Object.keys(result)) {
+    if (Array.isArray(result[key])) {
+      result[key] = result[key].join('\n').trim();
+    }
+  }
+
+  return result;
+}
+
+// ── 生成批注角标 + 气泡 HTML ──
+function renderAnnotate(anno, index) {
+  const id = `anno-${index}`;
+  const hasDiff = anno.before || anno.after;
+  const cls = hasDiff ? '' : ' simple';
+
+  let head = '';
+  if (anno.lesson) {
+    head += `<span class="chip">${escapeHtml(anno.lesson)}</span>`;
+  }
+  if (anno.rule) {
+    head += `<span class="chip">${escapeHtml(anno.rule)}</span>`;
+  }
+
+  let diff = '';
+  if (hasDiff) {
+    diff = '<div class="b-diff">';
+    if (anno.before) {
+      diff += `<div class="b-row before"><span class="b-mark">✕</span><span class="b-text">${escapeHtml(anno.before)}</span></div>`;
+    }
+    if (anno.after) {
+      diff += `<div class="b-row after"><span class="b-mark">✓</span><span class="b-text">${escapeHtml(anno.after)}</span></div>`;
+    }
+    diff += '</div>';
+  }
+
+  let why = '';
+  if (anno.why) {
+    why = `<div class="b-why">${escapeHtml(anno.why)}</div>`;
+  }
+
+  let simpleText = '';
+  if (!hasDiff && anno.why) {
+    // 纯说明型批注，why 作为正文显示（不带 💡 前缀，前缀由 CSS 加）
+    simpleText = '';
+  }
+
+  return {
+    marker: `<span class="anno" id="${id}-mark" onclick="toggleAnno('${id}')">${index}</span>`,
+    bubble: `<div class="anno-bubble${cls}" id="${id}"><div class="b-head">${head}</div>${diff}${simpleText}${why}</div>`,
+  };
+}
+
+// ── 处理正文里的 annotate 块 ──
+// 在 marked 渲染后的 HTML 里，找到 <pre><code class="language-annotate">...</code></pre>
+// 替换成：角标插到前一个 </p> 前，气泡跟在原位置
+function processAnnotations(htmlBody) {
+  const annoRegex = /<pre><code class="language-annotate">([\s\S]*?)<\/code><\/pre>/g;
+  const annotations = [];
+  let match;
+  let idx = 1;
+
+  // 先收集所有批注
+  while ((match = annoRegex.exec(htmlBody)) !== null) {
+    const anno = parseAnnotateBlock(match[1]);
+    annotations.push({ raw: match[0], parsed: anno, index: idx++ });
+  }
+
+  if (annotations.length === 0) return htmlBody;
+
+  let result = htmlBody;
+  for (const a of annotations) {
+    const rendered = renderAnnotate(a.parsed, a.index);
+
+    // 找到 annotate 块前面最近的 </p>
+    const blockPos = result.indexOf(a.raw);
+    if (blockPos === -1) continue;
+
+    // 往前找最近的 </p>
+    const beforeContent = result.substring(0, blockPos);
+    const lastPClose = beforeContent.lastIndexOf('</p>');
+
+    if (lastPClose !== -1) {
+      // 把角标插到 </p> 前，气泡替换 annotate 块位置
+      const insertPos = lastPClose;
+      result =
+        result.substring(0, insertPos) +
+        rendered.marker +
+        '</p>' +
+        result.substring(insertPos + 4, blockPos) +
+        rendered.bubble +
+        result.substring(blockPos + a.raw.length);
+    } else {
+      // 没有前一个 <p>，气泡替换 annotate 块位置（角标不插）
+      result =
+        result.substring(0, blockPos) +
+        rendered.bubble +
+        result.substring(blockPos + a.raw.length);
+    }
+  }
+
+  return result;
+}
+
 // ── 生成文章 HTML ──
 function renderArticle(article, topicCount) {
-  const htmlBody = marked.parse(article.body);
+  let htmlBody = marked.parse(article.body);
+  htmlBody = processAnnotations(htmlBody);
 
   const articleJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -233,6 +373,24 @@ ${personJsonLd}
 
   </div>
 </div>
+
+<script>
+function toggleAnno(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var mark = document.getElementById(id + '-mark');
+  var isShow = el.classList.contains('show');
+  document.querySelectorAll('.anno-bubble.show').forEach(function(b) {
+    b.classList.remove('show');
+    var m = document.getElementById(b.id + '-mark');
+    if (m) m.classList.remove('open');
+  });
+  if (!isShow) {
+    el.classList.add('show');
+    if (mark) mark.classList.add('open');
+  }
+}
+</script>
 
 </body>
 </html>`;

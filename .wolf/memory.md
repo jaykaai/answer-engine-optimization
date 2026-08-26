@@ -455,3 +455,38 @@
 | 21:28 | Session end: 6 writes across 6 files (2026-08-26-让AI引用你.md, mighty-nibbling-rocket.md, 2026-08-25-自足段落.md, deploy.js, package.json) | 7 reads | ~12397 tok |
 | 21:34 | Created site/demo-annotation-inline.html | — | ~2155 |
 | 21:34 | Session end: 7 writes across 7 files (2026-08-26-让AI引用你.md, mighty-nibbling-rocket.md, 2026-08-25-自足段落.md, deploy.js, package.json) | 7 reads | ~14706 tok |
+| 21:40 | Edited scripts/build.js | added 15 condition(s) | ~1107 |
+| 21:41 | Edited .gitignore | 2→5 lines | ~30 |
+| 21:42 | Edited scripts/build.js | modified renderArticle() | ~38 |
+| 21:42 | Edited scripts/build.js | added 4 condition(s) | ~146 |
+| 21:43 | Edited site/style.css | expanded (+62 lines) | ~645 |
+
+## Session: 2026-08-26 21:45
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:46 | Edited cn/网站文章/2026-08-25-自足段落.md | expanded (+8 lines) | ~165 |
+| 21:46 | Edited cn/网站文章/2026-08-25-自足段落.md | expanded (+14 lines) | ~138 |
+| 21:47 | Edited cn/网站文章/2026-08-25-自足段落.md | expanded (+8 lines) | ~117 |
+
+## 2026-08-26 新增一键部署功能
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:40 | Created scripts/deploy.js | 新增一键部署脚本（build→根仓库commit/push→site仓库commit/push） | ~1200 |
+| 20:42 | Edited package.json | 加 deploy script | ~20 |
+| 20:44 | Ran npm run deploy | 真实部署，根仓库+site均提交推送成功 | ~0 |
+| 20:46 | Fixed eGEOagents submodule bug | .gitignore + git rm --cached eGEOagents | ~30 |
+| 20:48 | Updated .wolf/cerebrum.md | 记录 deploy 脚本 + 嵌入式仓库陷阱 | ~300 |
+| 21:51 | Edited scripts/build.js | 4→4 lines | ~67 |
+| 21:52 | Edited scripts/build.js | modified toggleAnno() | ~137 |
+| 21:52 | Session end: 5 writes across 2 files (2026-08-25-自足段落.md, build.js) | 1 reads | ~6291 tok |
+
+## 2026-08-26 行内批注工作流改造
+
+| 时间 | 描述 | 文件 | 结果 | ~tokens |
+|------|------|------|------|---------|
+| 续会话 | 完成 build.js 批注工作流：parseAnnotateBlock + renderAnnotate + processAnnotations 三函数，解析 ```annotate 代码块，角标插前段 </p> 前，气泡跟原位 | scripts/build.js | ✅ build 通过，4 批注正确渲染 | ~6k |
+| 续会话 | 追加行内批注 CSS（角标 .anno + 气泡 .anno-bubble + diff/why/simple 三形态） | site/style.css | ✅ 399 行 | ~2k |
+| 续会话 | 自足段落篇加 4 个批注（第5课定义×2 + 第4课流畅度×2，含纯说明型） | cn/网站文章/2026-08-25-自足段落.md | ✅ 4 批注渲染验证通过 | ~3k |
+| 续会话 | 修复 toggleAnno 多批注同段落串位：角标加 id=anno-N-mark，用 ID 反查替代 previousElementSibling | scripts/build.js | ✅ rebuild 验证 | ~2k |

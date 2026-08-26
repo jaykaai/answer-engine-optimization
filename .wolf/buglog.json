@@ -233,7 +233,7 @@
       "error_message": "eGEOagents 被当作 git submodule（gitlink mode 160000）提交进根仓库，只存了 commit 哈希指针，内容不会随仓库推送",
       "file": "eGEOagents",
       "root_cause": "eGEOagents/ 自身是一个独立 git 仓库（clone 来的），放在根仓库目录下未加 .gitignore，git add . 时被识别为嵌入式仓库，提交为 submodule 引用",
-      "fix": "待处理：应把 eGEOagents/ 加入 .gitignore（参照 site/ 的先例），并 git rm --cached eGEOagents 移除已提交的 submodule 引用",
+      "fix": "已修复：把 eGEOagents/ 加入 .gitignore（参照 site/ 的先例），git rm --cached eGEOagents 移除 submodule 引用",
       "tags": [
         "git",
         "submodule",
@@ -244,6 +244,70 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-26T12:45:00.000Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-08-26T13:40:45.299Z",
+      "error_message": "Null/undefined access in ",
+      "file": "scripts/build.js",
+      "root_cause": "Property access on potentially null/undefined value",
+      "fix": "Added null safety (optional chaining or null check)",
+      "tags": [
+        "auto-detected",
+        "null-safety",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T13:40:45.299Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-08-26T13:42:08.323Z",
+      "error_message": "Wrong reference: const should be let",
+      "file": "scripts/build.js",
+      "root_cause": "Used \"const\" instead of \"let\"",
+      "fix": "Changed const → let",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T13:42:08.323Z"
+    },
+    {
+      "id": "bug-018",
+      "timestamp": "2026-08-26T13:42:16.399Z",
+      "error_message": "Missing guard clause",
+      "file": "scripts/build.js",
+      "root_cause": "No early return/throw for edge case: !el",
+      "fix": "Added guard clause: if (!el)",
+      "tags": [
+        "auto-detected",
+        "guard-clause",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T13:42:16.399Z"
+    },
+    {
+      "id": "bug-019",
+      "timestamp": "2026-08-26T13:43:39.584Z",
+      "error_message": "CSS fix: gap, width",
+      "file": "site/style.css",
+      "root_cause": "gap: 0.25rem → 0.5rem; width: 100% → 1.2rem",
+      "fix": "Changed gap: 0.25rem → 0.5rem; width: 100% → 1.2rem",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T13:43:39.584Z"
     }
   ]
 }

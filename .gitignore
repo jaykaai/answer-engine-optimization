@@ -4,6 +4,9 @@
 # site/ 是独立的 GitHub Pages 仓库（jaykaai.github.io），不在本仓库跟踪
 site/
 
+# eGEOagents/ 是 clone 的独立仓库，不在本仓库跟踪
+eGEOagents/
+
 # OpenWolf 运行时状态（每次会话都会变动，不入版本库）
 .wolf/token-ledger.json
 .wolf/cron-state.json

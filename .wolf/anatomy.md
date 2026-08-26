@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-26T13:34:22.252Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-26T13:52:24.690Z
 > Files: 39 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
@@ -9,7 +9,7 @@
 
 ## ./
 
-- `.gitignore` — Git ignore rules (~78 tok)
+- `.gitignore` — Git ignore rules (~127 tok)
 - `CLAUDE.md` — 项目定盘星，强制每次会话先读 (~72 tok)
 - `package.json` — Node.js package manifest (~56 tok)
 - `项目目标.md` — 项目目标（定盘星） (~308 tok)
@@ -50,7 +50,7 @@
 - `2026-08-22-geo-shi-shen-me.md` — GEO 和传统 SEO 有什么区别？ (~513 tok)
 - `2026-08-23-ru-he-rang-bai-du-shou-lu.md` — 网站被百度收录要经过哪几个环节？ (~857 tok)
 - `2026-08-23-structured-data-guide.md` — 什么是结构化数据？ (~841 tok)
-- `2026-08-25-自足段落.md` — 为什么 AI 搜索引擎需要自足段落？ (~581 tok)
+- `2026-08-25-自足段落.md` — 为什么 AI 搜索引擎需要自足段落？ (~804 tok)
 - `2026-08-26-让AI引用你.md` — 为什么 AI 引擎只引用带数字的段落？ (~536 tok)
 - `写作指南.md` — 文章写作指南 (~1409 tok)
 
@@ -68,8 +68,8 @@
 
 ## scripts/
 
-- `build.js` — build.js — 极简文章构建脚本 (~4406 tok)
-- `deploy.js` — deploy.js — 一键发布脚本 (~781 tok)
+- `build.js` — build.js — 极简文章构建脚本 (~5648 tok)
+- `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/
 
@@ -80,7 +80,7 @@
 - `index.html` — 纪优 — GEO 研究站 (~1877 tok)
 - `robots.txt` — robots.txt — 全部爬虫放行，包括 AI 引擎爬虫 (~99 tok)
 - `sitemap.xml` (~216 tok)
-- `style.css` — Styles: 65 rules (~2250 tok)
+- `style.css` — Styles: 83 rules (~2863 tok)
 
 ## site/ (独立 GitHub Pages 仓库 jaykaai.github.io，不在本仓库跟踪)
 
