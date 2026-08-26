@@ -490,3 +490,5 @@
 | 续会话 | 追加行内批注 CSS（角标 .anno + 气泡 .anno-bubble + diff/why/simple 三形态） | site/style.css | ✅ 399 行 | ~2k |
 | 续会话 | 自足段落篇加 4 个批注（第5课定义×2 + 第4课流畅度×2，含纯说明型） | cn/网站文章/2026-08-25-自足段落.md | ✅ 4 批注渲染验证通过 | ~3k |
 | 续会话 | 修复 toggleAnno 多批注同段落串位：角标加 id=anno-N-mark，用 ID 反查替代 previousElementSibling | scripts/build.js | ✅ rebuild 验证 | ~2k |
+| 21:58 | Edited cn/学习/学习进度.md | inline fix | ~29 |
+| 21:58 | Session end: 6 writes across 3 files (2026-08-25-自足段落.md, build.js, 学习进度.md) | 2 reads | ~7293 tok |

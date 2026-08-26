@@ -308,6 +308,23 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-26T13:43:39.584Z"
+    },
+    {
+      "id": "bug-020",
+      "timestamp": "2026-08-26T14:10:00Z",
+      "error_message": "toggleAnno 多批注同段落时角标高亮串位：第二个气泡的 previousElementSibling 是前一个气泡而非角标",
+      "file": "scripts/build.js",
+      "root_cause": "processAnnotations 把同段多个 annotate 块的角标连着插到同一 </p> 前，气泡也紧挨排列，DOM 相邻关系被打乱；toggleAnno 用 previousElementSibling 找角标会取到错误元素",
+      "fix": "角标加 id=anno-N-mark，气泡 id=anno-N；toggleAnno 改用 document.getElementById(id+\"-mark\") 反查角标，不依赖 DOM 相邻",
+      "tags": [
+        "annotation",
+        "toggleAnno",
+        "dom",
+        "build-js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T14:10:00Z"
     }
   ]
 }

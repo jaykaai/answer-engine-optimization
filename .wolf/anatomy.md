@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-26T13:52:24.690Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-26T13:58:10.328Z
 > Files: 39 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
@@ -28,7 +28,7 @@
 
 ## cn/学习/
 
-- `学习进度.md` — 中国 GEO 学习进度 (~971 tok)
+- `学习进度.md` — 中国 GEO 学习进度 (~982 tok)
 
 ## cn/学习/（学习管理：计划 + 进度）
 
@@ -68,7 +68,7 @@
 
 ## scripts/
 
-- `build.js` — build.js — 极简文章构建脚本 (~5648 tok)
+- `build.js` — 极简文章构建脚本 + 行内批注工作流（parseAnnotateBlock/renderAnnotate/processAnnotations 三函数，解析 ` ```annotate ` 块为角标+气泡） (~5648 tok)
 - `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/
