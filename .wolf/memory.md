@@ -18,6 +18,29 @@
 | 22:2x | 步骤①侦察：curl 解剖 Ahrefs/Semrush AEO 文章 HTML+Schema+4站 robots.txt | 可引用内容规格书.md | 量出4条段落规格+Moz只拦GPTBot实证 | ~5000 |
 | 22:08 | Session end: 2 writes across 2 files (学习进度.md, 可引用内容规格书.md) | 1 reads | ~3978 tok |
 
+## Session: 2026-08-24 文章框架搭建
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:00 | 讨论终端 × AI Agent 风格设计，多轮迭代 | demo-terminal-agent.html | 确定宽屏(960px) + 终端提示符 + 毛玻璃系统提示框 + 苹果风格排版 | ~5000 |
+| 21:30 | 搭建项目结构：scripts/ + Markdown 源文件格式 | package.json, scripts/build.js | 确定 frontmatter 格式（title/description/date/slug/topic/tags/faq） | ~420 |
+| 21:45 | 创建 style.css | site/style.css | 完整 Apple 终端 × AI Agent 风格样式表，含暗色模式 | ~2242 |
+| 22:00 | 编写 build.js 脚本 | scripts/build.js | Markdown → HTML 构建脚本，支持 frontmatter 解析、JSON-LD 自动生成（Article/Person/FAQPage）、首页列表自动生成 | ~2936 |
+| 22:15 | 转换 3 篇文章为 Markdown 源文件 | cn/网站文章/ | 创建 3 篇 .md 文件，含 frontmatter 和 FAQ 问答对 | ~2200 |
+| 22:30 | 修复中文 bold 标记问题 | cn/网站文章/*.md | marked 对中文紧挨 `**` 不识别，修复为加空格 | ~200 |
+| 22:35 | 构建测试通过 | node scripts/build.js | 生成 3 篇 article HTML + 1 篇 index.html，JSON-LD 完整 | ~300 |
+| 22:40 | 更新文档结构 | .wolf/anatomy.md | 反映新目录结构（cn/网站文章/ + site/articles/） | ~200 |
+
+## Session: 2026-08-25 完善搜索 + 写作指南
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 14:00 | 将终端命令替换为 AI 搜索对话 | site/index.html, scripts/build.js | 搜索框输入关键词，AI 返回文章列表，点击跳转 | ~3000 |
+| 14:10 | 移除首页静态话题列表 | site/index.html, scripts/build.js | 首页只保留 Agent 提示框 + 搜索对话 | ~500 |
+| 14:15 | 创建写作指南 | cn/网站文章/写作指南.md | 完整的文章格式说明，含 frontmatter 字段、FAQ 规则、Markdown 语法 | ~813 |
+| 14:20 | 更新项目说明 | 项目目标.md | 加入"写 Markdown，不要手写 HTML"工作流说明 | ~300 |
+| 14:25 | 更新 cerebrum | .wolf/cerebrum.md | 反映搜索替代终端、Markdown 工作流 | ~200 |
+
 ## Session: 2026-08-22 13:15
 
 | Time | Action | File(s) | Outcome | ~Tokens |
@@ -180,3 +203,255 @@
 
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
+| 20:38 | 目录规划：cn/en 按性质分学习/知识库/知乎文章(网站文章预留)，git mv 9 个文件 | cn/en 全部文档 | 结构分层，链接全校验通过 | ~1500 |
+| 20:38 | 修正 5 处相对链接（../../ 向上两级） | 可引用内容规格书/学习计划/第一篇/progress/项目目标 | 无死链 | ~40 |
+| 20:38 | 更新 anatomy.md 目录结构 + cerebrum 决策记录 | .wolf/anatomy.md, .wolf/cerebrum.md | 结构持久化 | ~100 |
+| 20:45 | Session end: 5 writes across 5 files (可引用内容规格书.md, 学习计划.md, 2026-08-23-第一篇.md, progress.md, 项目目标.md) | 4 reads | ~311 tok |
+| 22:03 | Edited site/geo-shi-shen-me.html | expanded (+26 lines) | ~219 |
+| 16:30 | 授课：问答结构化数据（FAQPage/QAPage）；实测百度验证工具全 404 → 改用 json-ld.org/playground + 百度资源平台抓取诊断；给 geo-shi-shen-me.html 加入 FAQPage（2/3 问答对），作业：补第 3 个问答 | site/geo-shi-shen-me.html, .wolf/cerebrum.md | 语法验证通过，FAQPage 上线待 push | ~3k |
+| 22:06 | Edited cn/学习/学习计划.md | 3→5 lines | ~52 |
+| 20:50 | 知识库目录重组确认：cn/拆为 学习/知乎文章/知识库 三子目录，en/拆为 学习/知识库；site/ 新增百度验证文件 baidu_verify_codeva-eJFz4U5swn.html；学习计划 2.1 失效链接加警示标记；anatomy 去重 | cn/学习/学习计划.md, .wolf/anatomy.md | 完成 | ~800 |
+| 22:09 | Session end: 7 writes across 6 files (可引用内容规格书.md, 学习计划.md, 2026-08-23-第一篇.md, progress.md, 项目目标.md) | 4 reads | ~602 tok |
+| 19:36 | Edited site/geo-shi-shen-me.html | expanded (+8 lines) | ~167 |
+| 19:37 | Edited cn/学习/学习进度.md | expanded (+7 lines) | ~190 |
+| 19:38 | Edited cn/学习/学习进度.md | 6→7 lines | ~108 |
+| 21:00 | 第二讲——FAQPage vs QAPage 选型规则；补完第3问答对（语法验证3块✅）；实测百度验证工具全404（更新学习进度关键结论）；学习进度.md 同步更新 | site/geo-shi-shen-me.html, cn/学习/学习进度.md | 3 JSON-LD ✅，Q数=H2数(3) ✅ | ~2k |
+| 19:40 | Session end: 10 writes across 7 files (可引用内容规格书.md, 学习计划.md, 2026-08-23-第一篇.md, progress.md, 项目目标.md) | 5 reads | ~1100 tok |
+| 19:46 | Session end: 10 writes across 7 files (可引用内容规格书.md, 学习计划.md, 2026-08-23-第一篇.md, progress.md, 项目目标.md) | 5 reads | ~1100 tok |
+
+## Session: 2026-08-24 19:48
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:48 | Created site/structured-data-guide.html | — | ~1771 |
+| 19:49 | Edited site/index.html | 3→3 lines | ~103 |
+| 19:50 | Edited site/sitemap.xml | expanded (+6 lines) | ~66 |
+| 19:52 | Edited cn/学习/学习进度.md | 3→4 lines | ~81 |
+| 19:53 | Edited cn/学习/学习进度.md | 2→3 lines | ~32 |
+| 21:15 | 写第3篇网站文章《结构化数据是什么？》— 含 Article+Person+FAQPage 三层 JSON-LD、5问答对；更新 sitemap.xml + index.html 索引；更新学习进度待办 | site/structured-data-guide.html, site/sitemap.xml, site/index.html, cn/学习/学习进度.md, .wolf/anatomy.md | 3 JSON-LD ✅ H2=Q=5 ✅ 12KB | ~2k |
+| 19:54 | Session end: 5 writes across 4 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md) | 2 reads | ~2201 tok |
+| 19:58 | Created site/style.css | — | ~1210 |
+| 19:58 | Edited site/structured-data-guide.html | 2→3 lines | ~43 |
+| 19:58 | Edited site/structured-data-guide.html | expanded (+14 lines) | ~117 |
+| 20:01 | Session end: 8 writes across 5 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 5 reads | ~5741 tok |
+| 20:07 | Session end: 8 writes across 5 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 5 reads | ~5741 tok |
+| 20:08 | Session end: 8 writes across 5 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 5 reads | ~5741 tok |
+| 20:10 | Session end: 8 writes across 5 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 5 reads | ~5741 tok |
+| 20:20 | Created site/demo-apple-style.html | — | ~2104 |
+| 20:20 | Session end: 9 writes across 6 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 5 reads | ~7996 tok |
+| 21:09 | Edited site/demo-apple-style.html | 11→11 lines | ~115 |
+| 21:09 | Session end: 10 writes across 6 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 5 reads | ~8119 tok |
+| 21:18 | Session end: 10 writes across 6 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 5 reads | ~8119 tok |
+| 21:24 | Session end: 10 writes across 6 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 19 reads | ~8119 tok |
+| 21:29 | Session end: 10 writes across 6 files (structured-data-guide.html, index.html, sitemap.xml, 学习进度.md, style.css) | 19 reads | ~8119 tok |
+
+## Session: 2026-08-24 21:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:00 | Created site/demo-terminal-agent.html | — | ~3133 |
+| 22:01 | Session end: 1 writes across 1 files (demo-terminal-agent.html) | 5 reads | ~3357 tok |
+| 22:04 | Session end: 1 writes across 1 files (demo-terminal-agent.html) | 7 reads | ~3357 tok |
+| 22:05 | Created site/demo-terminal-agent.html | — | ~3230 |
+| 22:05 | Session end: 2 writes across 1 files (demo-terminal-agent.html) | 7 reads | ~6817 tok |
+| 22:08 | Created site/demo-terminal-agent.html | — | ~4234 |
+| 22:08 | Session end: 3 writes across 1 files (demo-terminal-agent.html) | 7 reads | ~11353 tok |
+| 22:11 | Created site/demo-terminal-agent.html | — | ~3827 |
+| 22:12 | Created site/demo-terminal-agent.html | — | ~3632 |
+| 22:13 | Created site/demo-terminal-agent.html | — | ~2747 |
+| 22:13 | Session end: 6 writes across 1 files (demo-terminal-agent.html) | 7 reads | ~22288 tok |
+| 22:17 | Created site/demo-terminal-agent.html | — | ~3688 |
+| 22:17 | Session end: 7 writes across 1 files (demo-terminal-agent.html) | 7 reads | ~26239 tok |
+| 22:21 | Created package.json | — | ~44 |
+| 22:24 | Created site/style.css | — | ~2242 |
+| 22:25 | Created scripts/build.js | — | ~2922 |
+| 22:27 | Created cn/网站文章/2026-08-22-geo-shi-shen-me.md | — | ~547 |
+| 22:28 | Created cn/网站文章/2026-08-23-ru-he-rang-bai-du-shou-lu.md | — | ~914 |
+| 22:28 | Created cn/网站文章/2026-08-23-structured-data-guide.md | — | ~897 |
+| 22:29 | Edited scripts/build.js | 4→6 lines | ~63 |
+| 22:36 | Edited cn/网站文章/2026-08-22-geo-shi-shen-me.md | inline fix | ~33 |
+| 22:38 | Edited cn/网站文章/2026-08-23-structured-data-guide.md | inline fix | ~34 |
+| 22:53 | Session end: 16 writes across 7 files (demo-terminal-agent.html, package.json, style.css, build.js, 2026-08-22-geo-shi-shen-me.md) | 12 reads | ~37431 tok |
+| 07:35 | Session end: 16 writes across 7 files (demo-terminal-agent.html, package.json, style.css, build.js, 2026-08-22-geo-shi-shen-me.md) | 12 reads | ~37431 tok |
+| 07:37 | Edited scripts/build.js | added 3 condition(s) | ~2134 |
+| 07:54 | Session end: 17 writes across 7 files (demo-terminal-agent.html, package.json, style.css, build.js, 2026-08-22-geo-shi-shen-me.md) | 12 reads | ~40887 tok |
+| 07:59 | Edited scripts/build.js | 7→9 lines | ~68 |
+| 07:59 | Edited scripts/build.js | added 3 condition(s) | ~892 |
+| 08:05 | Created site/index.html | — | ~2406 |
+| 08:06 | Edited site/style.css | inline fix | ~11 |
+| 08:06 | Edited site/style.css | inline fix | ~13 |
+| 08:07 | Session end: 22 writes across 8 files (demo-terminal-agent.html, package.json, style.css, build.js, 2026-08-22-geo-shi-shen-me.md) | 14 reads | ~45290 tok |
+
+## Session: 2026-08-25 21:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-25 21:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-25 21:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:10 | Created site/index.html | — | ~2184 |
+| 21:10 | Edited scripts/build.js | inline fix | ~14 |
+
+## Session: 2026-08-25 21:10
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:18 | Created scripts/build.js | — | ~4047 |
+| 21:18 | Session end: 1 writes across 1 files (build.js) | 1 reads | ~8757 tok |
+| 21:24 | Created cn/学习计划.md | — | ~1228 |
+| 21:27 | Edited cn/学习/学习进度.md | expanded (+7 lines) | ~228 |
+| 21:33 | Edited site/articles/geo-shi-shen-me.html | 10→10 lines | ~470 |
+| 21:33 | Edited site/articles/geo-shi-shen-me.html | 3→3 lines | ~115 |
+| 21:33 | Session end: 5 writes across 4 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html) | 7 reads | ~11787 tok |
+| 21:38 | Edited site/index.html | removed 37 lines | ~7 |
+| 21:39 | Edited scripts/build.js | removed 28 lines | ~44 |
+| 21:43 | Session end: 7 writes across 5 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 8 reads | ~13167 tok |
+| 21:44 | Edited scripts/build.js | 5→3 lines | ~11 |
+| 21:48 | Session end: 8 writes across 5 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 8 reads | ~13178 tok |
+| 21:57 | Created cn/网站文章/写作指南.md | — | ~661 |
+| 21:57 | Session end: 9 writes across 6 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 8 reads | ~13886 tok |
+| 21:58 | Edited 项目目标.md | expanded (+16 lines) | ~329 |
+| 21:59 | Created cn/网站文章/写作指南.md | — | ~906 |
+| 22:01 | Edited site/style.css | inline fix | ~12 |
+| 22:03 | Session end: 12 writes across 8 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 9 reads | ~15441 tok |
+| 22:05 | Created cn/网站文章/2026-08-25-zi-zu-duan-luo.md | — | ~739 |
+| 22:05 | Session end: 13 writes across 9 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 9 reads | ~16233 tok |
+| 22:09 | Created cn/网站文章/写作指南.md | — | ~1503 |
+| 22:09 | Session end: 14 writes across 9 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 10 reads | ~18692 tok |
+| 22:16 | Session end: 14 writes across 9 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 11 reads | ~19385 tok |
+| 22:17 | Session end: 14 writes across 9 files (build.js, 学习计划.md, 学习进度.md, geo-shi-shen-me.html, index.html) | 11 reads | ~19385 tok |
+| 22:18 | Created cn/网站文章/2026-08-25-zi-zu-duan-luo.md | — | ~717 |
+
+## Session: 2026-08-25 22:20
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:20 | 对照写作指南检查并优化第1课文章 | cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 补frontmatter(含faq)、H2改问句、加来源链接、强化段落密度、答案优先、修正加粗空格 | ~1500 |
+
+## Session: 2026-08-25 22:22
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:29 | Created cn/网站文章/2026-08-22-geo-shi-shen-me.md | — | ~548 |
+| 22:30 | Created cn/网站文章/2026-08-23-ru-he-rang-bai-du-shou-lu.md | — | ~914 |
+| 22:30 | Created cn/网站文章/2026-08-23-structured-data-guide.md | — | ~897 |
+| 22:31 | Session end: 3 writes across 3 files (2026-08-22-geo-shi-shen-me.md, 2026-08-23-ru-he-rang-bai-du-shou-lu.md, 2026-08-23-structured-data-guide.md) | 1 reads | ~2527 tok |
+| 22:39 | Edited scripts/build.js | 3→4 lines | ~29 |
+| 22:44 | Edited scripts/build.js | added 1 condition(s) | ~385 |
+| 22:46 | Session end: 5 writes across 4 files (2026-08-22-geo-shi-shen-me.md, 2026-08-23-ru-he-rang-bai-du-shou-lu.md, 2026-08-23-structured-data-guide.md, build.js) | 3 reads | ~7474 tok |
+| 22:52 | Edited scripts/build.js | 3→8 lines | ~187 |
+| 22:52 | Edited scripts/build.js | inline fix | ~23 |
+| 22:54 | Edited scripts/build.js | added 1 condition(s) | ~138 |
+| 22:54 | Edited scripts/build.js | modified send() | ~45 |
+| 22:56 | Session end: 9 writes across 4 files (2026-08-22-geo-shi-shen-me.md, 2026-08-23-ru-he-rang-bai-du-shou-lu.md, 2026-08-23-structured-data-guide.md, build.js) | 3 reads | ~8141 tok |
+| 23:02 | Edited scripts/build.js | 24→25 lines | ~749 |
+| 23:02 | Edited scripts/build.js | added 1 condition(s) | ~66 |
+| 23:02 | Edited scripts/build.js | modified send() | ~77 |
+| 23:04 | Session end: 12 writes across 4 files (2026-08-22-geo-shi-shen-me.md, 2026-08-23-ru-he-rang-bai-du-shou-lu.md, 2026-08-23-structured-data-guide.md, build.js) | 3 reads | ~9226 tok |
+
+## Session: 2026-08-26 19:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-26 19:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-26 19:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-26 19:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:40 | Edited cn/学习/学习进度.md | 2→2 lines | ~45 |
+| 19:40 | Session end: 1 writes across 1 files (学习进度.md) | 2 reads | ~989 tok |
+| 20:00 | Edited cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 3→3 lines | ~103 |
+| 20:00 | Edited cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 5→5 lines | ~85 |
+| 20:01 | Edited cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 5→5 lines | ~68 |
+| 20:02 | Edited cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 7→7 lines | ~117 |
+| 20:02 | Edited cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 3→3 lines | ~30 |
+| 20:03 | Edited cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 3→3 lines | ~28 |
+| 20:03 | Edited cn/网站文章/2026-08-25-zi-zu-duan-luo.md | inline fix | ~18 |
+
+## Session: 2026-08-26 第 2 课授课 + 文章改写
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:4x | 确认删除 3 篇文章、仅保留 zi-zu-duan-luo.md；进度表第 1 课标完成、进入第 2 课 | cn/学习/学习进度.md | 进度更新 | ~200 |
+| 19:5x | 第 2 课授课：统计数字+引用来源（3 条规则：模糊词→数字、数字≤3年、每个声明附来源） | — | 交付 | ~1500 |
+| 20:0x | 按"来源可查证"原则改写 zi-zu-duan-luo.md：删除伪造来源（AutoGEO/Stanford/GEO Optimizer 共用同一 arXiv 链接）、删除无法当场核实数字（+25%/+23%/+10%、10000 查询、40% 重叠、23% 营销人员）、保留可查证（Princeton arXiv 2311.09735、BrightEdge 4.4 倍转化率）、修复 description 自相矛盾 | cn/网站文章/2026-08-25-zi-zu-duan-luo.md | 改写完成，仅保留可查证来源 | ~3000 |
+| 20:06 | Session end: 8 writes across 2 files (学习进度.md, 2026-08-25-zi-zu-duan-luo.md) | 3 reads | ~2141 tok |
+| 20:11 | Edited cn/学习/学习进度.md | 2→2 lines | ~46 |
+| 20:11 | Session end: 9 writes across 2 files (学习进度.md, 2026-08-25-zi-zu-duan-luo.md) | 3 reads | ~2191 tok |
+
+## Session: 2026-08-26 20:14
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:23 | Edited cn/网站文章/2026-08-25-自足段落.md | 3→3 lines | ~116 |
+| 20:23 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~26 |
+| 20:24 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~32 |
+| 20:24 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~58 |
+| 20:24 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~25 |
+
+## Session: 2026-08-26 第 3 课授课 + 文章改写
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:1x | 第 3 课授课：专家引用+权威语气+专业术语（3规则：引用格式、消除模糊词、术语首次解释） | — | 交付 | ~1500 |
+| 20:2x | 文件名拼音→汉字：2026-08-25-zi-zu-duan-luo.md → 2026-08-25-自足段落.md；slug 保持拼音（用户确认） | cn/网站文章/ | 重命名完成 | ~200 |
+| 20:3x | 去 arXiv 取 Princeton 论文真实可引用句，得3句原文（含"GEO 提升可见度高达40%"真实数字） | — | 真实引用素材到手 | ~800 |
+| 20:4x | 改写文章：①加2处真实专家引用（arXiv原文直引+署名）②排查犹豫词（不一定→并不必然、可能已经→就已、远高于→显著高于）③用Princeton真实40%替换无法核实的BrightEdge 4.4倍例子 | cn/网站文章/2026-08-25-自足段落.md | 第3课三项全完成 | ~2500 |
+| 20:5x | 更新 anatomy.md：删旧拼音条目，新汉字条目 | .wolf/anatomy.md | 完成 | ~100 |
+| 20:27 | Session end: 5 writes across 1 files (2026-08-25-自足段落.md) | 1 reads | ~274 tok |
+| 20:29 | Edited cn/学习/学习进度.md | 2→2 lines | ~53 |
+| 20:32 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~66 |
+| 20:32 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~51 |
+
+## Session: 2026-08-26 20:34
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:35 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~32 |
+| 20:35 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~25 |
+| 20:36 | Edited cn/学习/学习进度.md | inline fix | ~34 |
+| 20:38 | Created cn/网站文章/2026-08-26-让AI引用你.md | — | ~563 |
+
+## Session: 2026-08-26 第 4 课授课 + 新文章
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:0x | 第 4 课授课：流畅度+易懂+词汇丰富（3规则：长句拆短15-25词、避免连续重复词、消除犹豫词） | — | 交付 | ~1200 |
+| 21:1x | 第 4 课改写自足段落.md：拆短3处长句（第15/21/27行）、替换重复词（"优先"×2→重组句、"AI引擎"→"它"/"生成式引擎"） | cn/网站文章/2026-08-25-自足段落.md | 第4课完成 | ~1800 |
+| 21:2x | 新写文章《怎么让AI搜索引擎引用你的内容？三个方法》整合2-3-4课方法（统计数字+专家引用+流畅度） | cn/网站文章/2026-08-26-让AI引用你.md | 创建，~620 tok | ~3000 |
+| 21:3x | build 生成 HTML，验证 JSON-LD（Article+Person+FAQPage，3问答对全对） | site/articles/rang-ai-yin-yong-ni.html | 构建成功 | ~200 |
+| 21:4x | 更新进度：第4课标记完成 | cn/学习/学习进度.md | 完成 | ~100 |
+| 20:41 | Session end: 4 writes across 3 files (2026-08-25-自足段落.md, 学习进度.md, 2026-08-26-让AI引用你.md) | 1 reads | ~701 tok |
+
+## Session: 2026-08-26 21:01
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:06 | Edited cn/网站文章/2026-08-26-让AI引用你.md | inline fix | ~86 |
+| 21:07 | Session end: 1 writes across 1 files (2026-08-26-让AI引用你.md) | 6 reads | ~5426 tok |
+| 21:14 | Created ../../../../.claude/plans/mighty-nibbling-rocket.md | — | ~576 |
+| 21:17 | Edited cn/网站文章/2026-08-25-自足段落.md | inline fix | ~34 |
+| 21:22 | Created scripts/deploy.js | — | ~781 |
+| 21:23 | Edited package.json | 3→4 lines | ~28 |
+| 21:23 | Created site/demo-annotation-styles.html | — | ~3041 |
+| 21:24 | Session end: 6 writes across 6 files (2026-08-26-让AI引用你.md, mighty-nibbling-rocket.md, 2026-08-25-自足段落.md, deploy.js, package.json) | 7 reads | ~12397 tok |
+| 21:28 | Session end: 6 writes across 6 files (2026-08-26-让AI引用你.md, mighty-nibbling-rocket.md, 2026-08-25-自足段落.md, deploy.js, package.json) | 7 reads | ~12397 tok |
+| 21:34 | Created site/demo-annotation-inline.html | — | ~2155 |
+| 21:34 | Session end: 7 writes across 7 files (2026-08-26-让AI引用你.md, mighty-nibbling-rocket.md, 2026-08-25-自足段落.md, deploy.js, package.json) | 7 reads | ~14706 tok |

@@ -32,6 +32,200 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-23T04:59:58.267Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-08-24T11:49:41.664Z",
+      "error_message": "Incorrect value in code",
+      "file": "site/index.html",
+      "root_cause": "Had \"ru-he-rang-bai-du-shou-lu.html\"",
+      "fix": "Changed to \"structured-data-guide.html\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "html"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-24T11:49:41.664Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-08-24T23:37:03.013Z",
+      "error_message": "Missing guard clause",
+      "file": "scripts/build.js",
+      "root_cause": "No early return/throw for edge case: !grouped[topic]",
+      "fix": "Added guard clause: if (!grouped[topic])",
+      "tags": [
+        "auto-detected",
+        "guard-clause",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-24T23:37:03.013Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-08-24T23:59:43.312Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 32→66 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-24T23:59:43.312Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-08-25T13:10:35.542Z",
+      "error_message": "Wrong reference: span should be div",
+      "file": "scripts/build.js",
+      "root_cause": "Used \"span\" instead of \"div\"",
+      "fix": "Changed span → div",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-25T13:10:35.542Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-08-25T13:27:52.621Z",
+      "error_message": "Significant refactor of ",
+      "file": "cn/学习/学习进度.md",
+      "root_cause": "10 lines replaced/restructured",
+      "fix": "Rewrote 12→19 lines (10 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-25T13:27:52.621Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-08-25T13:33:30.691Z",
+      "error_message": "Significant refactor of ",
+      "file": "site/articles/geo-shi-shen-me.html",
+      "root_cause": "8 lines replaced/restructured",
+      "fix": "Rewrote 10→10 lines (8 removed) | Also: <p>GEO 在 2026 年变得重要，是因为越来越多的用户开始直接用 AI 引擎获取信息和做购买决; <p>数据显示，AI 生成回答环节中，被引用的内容集中在少数高质量来源。如果你的内容不在这些来源中，",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "html"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-08-25T13:33:44.673Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-08-25T13:38:27.752Z",
+      "error_message": "Significant refactor of ",
+      "file": "site/index.html",
+      "root_cause": "27 lines replaced/restructured",
+      "fix": "Rewrote 37→3 lines (27 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "html"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-25T13:38:27.752Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-08-25T13:39:55.815Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "21 lines replaced/restructured",
+      "fix": "Rewrote 28→4 lines (21 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-25T13:39:55.815Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-08-25T13:58:51.516Z",
+      "error_message": "Significant refactor of ",
+      "file": "项目目标.md",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 37→53 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-25T13:58:51.516Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-08-25T14:52:18.351Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/build.js",
+      "root_cause": "Had \"搜索文章，例如：什么是 GEO？\"",
+      "fix": "Changed to \"列举所有文章列表\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-25T14:52:18.351Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-08-26T12:05:00.000Z",
+      "error_message": "文章来源造假：同一 arXiv 链接套在三个不同来源上（AutoGEO ICLR 2026 / Stanford 2025 / GEO Optimizer 项目），且引用了无法当场核实的具体数字（+25%/+23%/+10%、10000 查询、40% 重叠、23% 营销人员）",
+      "file": "cn/网站文章/2026-08-25-zi-zu-duan-luo.md",
+      "root_cause": "写文章时为追求'有数字有来源'的观感，把不确定的来源和数字都填上去，不同来源共用同一 arXiv 链接，未做核实",
+      "fix": "按'来源可查证'原则改写：保留 Princeton arXiv 2311.09735（已核实真实）和 BrightEdge 4.4 倍转化率（来源可信）；删除所有伪造来源和无法当场核实的数字；description 同步删除百分比避免自相矛盾",
+      "tags": [
+        "geo-writing",
+        "fake-sources",
+        "unverified-numbers",
+        "credibility",
+        "lesson-2"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T12:05:00.000Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-08-26T12:24:20.420Z",
+      "error_message": "Incorrect value in code",
+      "file": "cn/网站文章/2026-08-25-自足段落.md",
+      "root_cause": "Had \"根据 BrightEdge 的研究，AI 引荐流量的转化率是传统搜索流量转化率的 4.4 倍（[B",
+      "fix": "Changed to \"根据 Princeton 的 GEO 研究，采用优化方法后内容可见度提升高达 40%（[Aggar",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T12:24:20.420Z"
     }
   ]
 }
