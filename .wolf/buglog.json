@@ -226,6 +226,24 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-26T12:24:20.420Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-08-26T12:45:00.000Z",
+      "error_message": "eGEOagents 被当作 git submodule（gitlink mode 160000）提交进根仓库，只存了 commit 哈希指针，内容不会随仓库推送",
+      "file": "eGEOagents",
+      "root_cause": "eGEOagents/ 自身是一个独立 git 仓库（clone 来的），放在根仓库目录下未加 .gitignore，git add . 时被识别为嵌入式仓库，提交为 submodule 引用",
+      "fix": "待处理：应把 eGEOagents/ 加入 .gitignore（参照 site/ 的先例），并 git rm --cached eGEOagents 移除已提交的 submodule 引用",
+      "tags": [
+        "git",
+        "submodule",
+        "embedded-repo",
+        "gitignore",
+        "deploy"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-26T12:45:00.000Z"
     }
   ]
 }
