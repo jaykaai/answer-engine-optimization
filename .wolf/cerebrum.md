@@ -83,6 +83,9 @@
 - Ahrefs HTML 850KB vs Semrush 218KB；Ahrefs 的 h2 被 CSS-in-JS 包装层淹没，是反面标本
 - 自足段落（self-contained chunk）是最易漏的规则：直答句必须自带主语全称，因 chunk 被摘出时已脱离标题
 
+- **[2026-08-27] 第 6 课·实体图（Entity Disambiguation）模式**：JSON-LD 从"每个页面重复内联 Person/Org 对象"升级为"用 `@id` 引用的实体图"。三要素：①每个实体有稳定 `@id`（`#person`/`#organization`/`#website`/`#article`）；②跨实体引用用 `{"@id": "..."}` 而非重复内联对象；③sameAs 多平台锚点让 AI 跨数据源拼同一个实体。build.js 配置常量区集中管理 `PERSON_ID`/`ORG_ID`/`WEBSITE_ID`/`AUTHOR_SAMEAS`(数组)/`AUTHOR_KNOWS_ABOUT`(稳定领域，不随文章 tag 变)/`AUTHOR_DESCRIPTION`。文章页输出 Article+Person+Organization 三块；首页输出 WebSite+Person+Organization 三块。knowsAbout 是作者稳定身份（生成式引擎优化/AI智能体应用/结构化数据/搜索引擎优化），不是每篇文章的 tag。
+- **[2026-08-27] sameAs 嵌套数组 Bug**：配置常量 `AUTHOR_SAMEAS` 从字符串改成数组后，下游必须用 `AUTHOR_SAMEAS`（已是数组）或 `...AUTHOR_SAMEAS` 展开，**不能**再写 `[AUTHOR_SAMEAS]`（变成嵌套数组 `[[...]]`）或 `"${AUTHOR_SAMEAS}"`（数组被模板化成逗号字符串 `a,b`）。首页手写模板里用 `JSON.stringify(AUTHOR_SAMEAS)` 最安全。
+
 ## Do-Not-Repeat
 
 - [2026-08-21] 断言"知乎是中国 AEO 超级节点"但**未经验证**，被用户实测数据推翻（秘塔/豆包/千问均未引用知乎）。教训：**给建议前必须用用户或自己的实测数据验证，不要沿用国外经验推断中国生态。**

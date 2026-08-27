@@ -31,7 +31,26 @@ const ARTICLES_DIR = path.join(OUT_DIR, 'articles');
 const SITE_URL = 'https://www.jiyou.site';
 const AUTHOR_NAME = '纪优';
 const AUTHOR_URL = SITE_URL;
-const AUTHOR_SAMEAS = 'https://www.zhihu.com/people/yeah-98-35';
+const AUTHOR_DESCRIPTION = 'AI 智能体应用与生成式引擎优化（GEO）研究者';
+
+// 实体 sameAs 锚点（跨平台身份验证，只填真实拥有的平台）
+const AUTHOR_SAMEAS = [
+  'https://www.zhihu.com/people/yeah-98-35',   // 知乎（实体锚点）
+  'https://github.com/jaykaai',                  // GitHub（代码实体锚点）
+];
+
+// 稳定知识领域（knowsAbout，不随文章 tag 变动）
+const AUTHOR_KNOWS_ABOUT = [
+  '生成式引擎优化',
+  'AI 智能体应用',
+  '结构化数据',
+  '搜索引擎优化',
+];
+
+// 实体图 @id（实体消歧用，AI 引擎靠 @id 拼合同一个实体）
+const PERSON_ID = `${SITE_URL}/#person`;
+const ORG_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
 
 // 确保输出目录存在
 fs.mkdirSync(ARTICLES_DIR, { recursive: true });
@@ -302,25 +321,40 @@ function renderArticle(article, topicCount) {
 
   const articleJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
+    '@id': `${SITE_URL}/articles/${article.slug}.html#article`,
     '@type': 'Article',
     headline: article.title,
     description: article.description || '',
-    author: { '@type': 'Person', name: AUTHOR_NAME, url: AUTHOR_URL },
-    publisher: { '@type': 'Organization', name: AUTHOR_NAME, url: AUTHOR_URL },
+    author: { '@id': PERSON_ID },        // 引用实体图，不重复定义
+    publisher: { '@id': ORG_ID },
     datePublished: article.date,
     dateModified: article.date,
     inLanguage: 'zh-CN',
     mainEntityOfPage: `${SITE_URL}/articles/${article.slug}.html`,
   }, null, 2);
 
+  // 实体图：Person + Organization 互相引用，AI 靠 @id + sameAs 消歧
   const personJsonLd = JSON.stringify({
     '@context': 'https://schema.org',
+    '@id': PERSON_ID,
     '@type': 'Person',
     name: AUTHOR_NAME,
     url: AUTHOR_URL,
-    description: 'AI 智能体应用与生成式引擎优化（GEO）研究者',
-    sameAs: [AUTHOR_SAMEAS],
-    knowsAbout: article.tags || [],
+    description: AUTHOR_DESCRIPTION,
+    sameAs: AUTHOR_SAMEAS,               // 多平台锚点（知乎 + GitHub）
+    knowsAbout: AUTHOR_KNOWS_ABOUT,     // 稳定知识领域
+    worksFor: { '@id': ORG_ID },
+  }, null, 2);
+
+  const orgJsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@id': ORG_ID,
+    '@type': 'Organization',
+    name: AUTHOR_NAME,
+    url: AUTHOR_URL,
+    description: AUTHOR_DESCRIPTION,
+    sameAs: AUTHOR_SAMEAS,
+    founder: { '@id': PERSON_ID },
   }, null, 2);
 
   const faqJsonLd = generateFaqJsonLd(article.faq, htmlBody);
@@ -340,6 +374,9 @@ ${articleJsonLd}
   </script>
   <script type="application/ld+json">
 ${personJsonLd}
+  </script>
+  <script type="application/ld+json">
+${orgJsonLd}
   </script>
   ${faqJsonLd ? `<script type="application/ld+json">\n${faqJsonLd}\n  </script>` : ''}
 </head>
@@ -429,17 +466,39 @@ function renderHomepage(articles) {
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@id": "${WEBSITE_ID}",
     "@type": "WebSite",
     "name": "${AUTHOR_NAME}",
     "url": "${SITE_URL}/",
     "description": "AI 智能体应用与生成式引擎优化（GEO）研究",
-    "author": {
-      "@type": "Person",
-      "name": "${AUTHOR_NAME}",
-      "url": "${AUTHOR_URL}",
-      "sameAs": ["${AUTHOR_SAMEAS}"]
-    },
+    "author": { "@id": "${PERSON_ID}" },
+    "publisher": { "@id": "${ORG_ID}" },
     "inLanguage": "zh-CN"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@id": "${PERSON_ID}",
+    "@type": "Person",
+    "name": "${AUTHOR_NAME}",
+    "url": "${AUTHOR_URL}",
+    "description": "${AUTHOR_DESCRIPTION}",
+    "sameAs": ${JSON.stringify(AUTHOR_SAMEAS)},
+    "knowsAbout": ${JSON.stringify(AUTHOR_KNOWS_ABOUT)},
+    "worksFor": { "@id": "${ORG_ID}" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@id": "${ORG_ID}",
+    "@type": "Organization",
+    "name": "${AUTHOR_NAME}",
+    "url": "${AUTHOR_URL}",
+    "description": "${AUTHOR_DESCRIPTION}",
+    "sameAs": ${JSON.stringify(AUTHOR_SAMEAS)},
+    "founder": { "@id": "${PERSON_ID}" }
   }
   </script>
   <style>

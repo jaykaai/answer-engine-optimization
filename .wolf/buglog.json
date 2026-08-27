@@ -325,6 +325,40 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-26T14:10:00Z"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-08-27T13:35:42.378Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 42→60 lines (5 removed) | Also: \"author\": {; \"sameAs\": [\"${AUTHOR_SAMEAS}\"]",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-08-27T13:38:22.200Z"
+    },
+    {
+      "id": "bug-021",
+      "timestamp": "2026-08-27T13:45:00.000Z",
+      "error_message": "JSON-LD sameAs 生成嵌套数组或逗号字符串",
+      "file": "scripts/build.js",
+      "root_cause": "配置常量 AUTHOR_SAMEAS 从字符串改为数组后，下游仍用 [AUTHOR_SAMEAS]（嵌套）或模板化字符串，未相应更新",
+      "fix": "文章页 personJsonLd/orgJsonLd 直接用 AUTHOR_SAMEAS（已是数组）；首页手写模板用 JSON.stringify(AUTHOR_SAMEAS)",
+      "tags": [
+        "json-ld",
+        "sameas",
+        "entity-graph",
+        "template",
+        "nested-array"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-27T13:45:00.000Z"
     }
   ]
 }

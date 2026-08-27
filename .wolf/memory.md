@@ -493,3 +493,20 @@
 | 21:58 | Edited cn/学习/学习进度.md | inline fix | ~29 |
 | 21:58 | Session end: 6 writes across 3 files (2026-08-25-自足段落.md, build.js, 学习进度.md) | 2 reads | ~7293 tok |
 | 22:11 | Session end: 6 writes across 3 files (2026-08-25-自足段落.md, build.js, 学习进度.md) | 3 reads | ~7293 tok |
+| 21:34 | Edited scripts/build.js | expanded (+19 lines) | ~229 |
+| 21:35 | Edited scripts/build.js | expanded (+18 lines) | ~571 |
+
+## Session: 2026-08-27 21:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:38 | Edited scripts/build.js | expanded (+22 lines) | ~312 |
+| 21:40 | 第6课·实体图升级①：配置常量加 AUTHOR_DESCRIPTION/AUTHOR_SAMEAS数组/AUTHOR_KNOWS_ABOUT/PERSON_ID/ORG_ID/WEBSITE_ID | scripts/build.js | ✅ | ~1k |
+| 21:42 | 第6课·实体图升级②：renderArticle 的 articleJsonLd author/publisher 改 @id 引用；personJsonLd 加 @id+sameAs+knowsAbout+worksFor；新增 orgJsonLd（@id+sameAs+founder） | scripts/build.js | ✅ build 通过 | ~2k |
+| 21:44 | 第6课·实体图升级③：首页 WebSite JSON-LD 加 @id，author/publisher 用 @id 引用；新增独立 Person+Organization 实体块（修复 sameAs 嵌套数组 Bug） | scripts/build.js | ✅ build 通过 | ~2k |
+| 21:45 | 验证：grep 确认文章页+首页 @id 引用闭环、sameAs 双锚点（知乎+GitHub）、knowsAbout 稳定领域 | site/articles/*.html, site/index.html | ✅ 内容正确 | ~1k |
+| 21:51 | Edited cn/学习/学习进度.md | inline fix | ~47 |
+| 21:52 | Session end: 2 writes across 2 files (build.js, 学习进度.md) | 1 reads | ~6286 tok |
+| 21:59 | Created cn/网站文章/2026-08-27-实体图.md | — | ~3087 |
+| 21:55 | 第6课实战文章写成：《怎么让 AI 引擎认出"你是谁"？JSON-LD 实体图实战》，含改造前/后代码对比 + 实体图结构图 + 三字段配合 | cn/网站文章/2026-08-27-实体图.md | ✅ build 通过，自动带 4 块 JSON-LD | ~4k |
+| 22:02 | Session end: 3 writes across 3 files (build.js, 学习进度.md, 2026-08-27-实体图.md) | 2 reads | ~10070 tok |

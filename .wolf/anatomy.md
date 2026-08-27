@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-26T13:58:10.328Z
-> Files: 39 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-27T13:59:31.788Z
+> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
@@ -28,7 +28,7 @@
 
 ## cn/学习/
 
-- `学习进度.md` — 中国 GEO 学习进度 (~982 tok)
+- `学习进度.md` — 中国 GEO 学习进度 (~1009 tok)
 
 ## cn/学习/（学习管理：计划 + 进度）
 
@@ -52,6 +52,7 @@
 - `2026-08-23-structured-data-guide.md` — 什么是结构化数据？ (~841 tok)
 - `2026-08-25-自足段落.md` — 为什么 AI 搜索引擎需要自足段落？ (~804 tok)
 - `2026-08-26-让AI引用你.md` — 为什么 AI 引擎只引用带数字的段落？ (~536 tok)
+- `2026-08-27-实体图.md` — 怎么让 AI 引擎认出"你是谁"？JSON-LD 实体图实战（@id + sameAs + knowsAbout，含代码改造） (~2894 tok)
 - `写作指南.md` — 文章写作指南 (~1409 tok)
 
 ## cn/网站文章/（Markdown 源文件，`npm run build` 自动生成 site/）
@@ -68,7 +69,7 @@
 
 ## scripts/
 
-- `build.js` — 极简文章构建脚本 + 行内批注工作流（parseAnnotateBlock/renderAnnotate/processAnnotations 三函数，解析 ` ```annotate ` 块为角标+气泡） (~5648 tok)
+- `build.js` — build.js — 文章构建脚本（Markdown→HTML，行内批注工作流 + 实体图 JSON-LD：Article/WebSite/Person/Organization 用 @id 互相引用） (~6400 tok)
 - `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/
