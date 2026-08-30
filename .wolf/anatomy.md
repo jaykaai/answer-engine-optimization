@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T01:25:12.690Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T07:45:50.222Z
 > Files: 40 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
@@ -52,7 +52,7 @@
 - `2026-08-23-structured-data-guide.md` — 什么是结构化数据？ (~841 tok)
 - `2026-08-25-自足段落.md` — 为什么 AI 搜索引擎需要自足段落？ (~804 tok)
 - `2026-08-26-让AI引用你.md` — 为什么 AI 引擎只引用带数字的段落？ (~536 tok)
-- `2026-08-27-实体图.md` — 先搞懂：AI 怎么读你的网页 (~2380 tok)
+- `2026-08-27-实体图.md` — 先搞懂：AI 怎么读你的网页 (~2969 tok)
 - `写作指南.md` — 文章写作指南 (~1409 tok)
 
 ## cn/网站文章/（Markdown 源文件，`npm run build` 自动生成 site/）
@@ -69,7 +69,7 @@
 
 ## scripts/
 
-- `build.js` — build.js — 文章构建脚本（Markdown→HTML，行内批注工作流 + 实体图 JSON-LD：Article/WebSite/Person/Organization 用 @id 互相引用） (~6400 tok)
+- `build.js` — build.js — 极简文章构建脚本 (~6702 tok)
 - `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/
@@ -81,7 +81,7 @@
 - `index.html` — 纪优 — GEO 研究站 (~1877 tok)
 - `robots.txt` — robots.txt — 全部爬虫放行，包括 AI 引擎爬虫 (~99 tok)
 - `sitemap.xml` (~216 tok)
-- `style.css` — Styles: 83 rules (~2863 tok)
+- `style.css` — Styles: 85 rules (~2930 tok)
 
 ## site/ (独立 GitHub Pages 仓库 jaykaai.github.io，不在本仓库跟踪)
 

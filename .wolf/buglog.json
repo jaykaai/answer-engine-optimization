@@ -359,6 +359,123 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-27T13:45:00.000Z"
+    },
+    {
+      "id": "bug-023",
+      "timestamp": "2026-08-30T01:44:05.074Z",
+      "error_message": "Significant refactor of ",
+      "file": "cn/网站文章/2026-08-27-实体图.md",
+      "root_cause": "29 lines replaced/restructured",
+      "fix": "Rewrote 34→17 lines (29 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T01:44:05.074Z"
+    },
+    {
+      "id": "bug-024",
+      "timestamp": "2026-08-30T10:30:00.000Z",
+      "error_message": "build.js 自定义 mermaid renderer 不生效：```mermaid 块仍被 marked 输出为 <pre><code class=\"language-mermaid\">，未变成 <pre class=\"mermaid\">",
+      "file": "scripts/build.js",
+      "root_cause": "marked v15 的 code 方法签名是 code({text, lang, escaped})（单对象参数），旧写法 renderer.code = (code, infostring) => {...} 参数对不上：infostring 恒为 undefined，mermaid 分支永不进。且 new marked.Renderer() + 覆盖方法的旧用法在 v15 已废弃。",
+      "fix": "改用 marked.use({ renderer: { code({ text, lang }) { if (lang==='mermaid') return `<pre class=\"mermaid\">${text}</pre>`; return false; } } })。返回 false 走默认渲染。",
+      "tags": [
+        "marked",
+        "renderer",
+        "mermaid",
+        "API变更",
+        "版本差异"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T10:30:00.000Z"
+    },
+    {
+      "id": "bug-025",
+      "timestamp": "2026-08-30T10:35:00.000Z",
+      "error_message": "mermaid 块里 <br/> 和引号被 escapeHtml 转义成 &lt;br/&gt; 和 &quot;，mermaid.js 无法解析节点内的换行和标签语法",
+      "file": "scripts/build.js",
+      "root_cause": "对 mermaid 源码用了 escapeHtml(text)。mermaid 源码不是要显示的代码文本，而是要给 mermaid.js 解析的指令，<br/> 等语法必须原样保留。浏览器虽会把 &quot; 还原成 \"，但 &lt;br/&gt; 在 <pre> DOM 里不会还原成 <br/> 文本（被当成标签吃掉），mermaid 拿不到 textContent 里的 <br/>。",
+      "fix": "mermaid 块不转义，直接输出 <pre class=\"mermaid\">${text}</pre>。源码来自作者自己写的 Markdown，非用户输入，无 XSS 风险。",
+      "tags": [
+        "mermaid",
+        "escapeHtml",
+        "渲染",
+        "语法"
+      ],
+      "related_bugs": [
+        "bug-024"
+      ],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T10:35:00.000Z"
+    },
+    {
+      "id": "bug-026",
+      "timestamp": "2026-08-30T01:58:29.952Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "8 lines replaced/restructured",
+      "fix": "Rewrote 18→35 lines (8 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T01:58:29.952Z"
+    },
+    {
+      "id": "bug-027",
+      "timestamp": "2026-08-30T07:41:36.896Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "2 lines replaced/restructured",
+      "fix": "Rewrote 15→23 lines (2 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T07:41:36.896Z"
+    },
+    {
+      "id": "bug-028",
+      "timestamp": "2026-08-30T07:42:17.596Z",
+      "error_message": "Significant refactor of ",
+      "file": "cn/网站文章/2026-08-27-实体图.md",
+      "root_cause": "18 lines replaced/restructured",
+      "fix": "Rewrote 22→77 lines (18 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T07:42:17.596Z"
+    },
+    {
+      "id": "bug-029",
+      "timestamp": "2026-08-30T07:45:50.231Z",
+      "error_message": "CSS fix: max-width, margin",
+      "file": "site/style.css",
+      "root_cause": "max-width: 100% → 880px; margin: 2rem 0 → 2.5rem auto",
+      "fix": "Changed max-width: 100% → 880px; margin: 2rem 0 → 2.5rem auto",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "css"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T07:45:50.231Z"
     }
   ]
 }

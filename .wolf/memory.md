@@ -514,3 +514,137 @@
 | 09:21 | Session end: 4 writes across 3 files (build.js, 学习进度.md, 2026-08-27-实体图.md) | 2 reads | ~12688 tok |
 | 09:25 | Created cn/网站文章/2026-08-27-实体图.md | — | ~2539 |
 | 09:25 | Session end: 5 writes across 3 files (build.js, 学习进度.md, 2026-08-27-实体图.md) | 2 reads | ~15408 tok |
+
+## Session: 2026-08-30 09:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:43 | Edited scripts/build.js | added 1 condition(s) | ~153 |
+| 09:43 | Edited scripts/build.js | 5→6 lines | ~63 |
+| 09:43 | Edited scripts/build.js | added 1 condition(s) | ~188 |
+| 09:44 | Edited cn/网站文章/2026-08-27-实体图.md | reduced (-17 lines) | ~179 |
+| 09:45 | Edited scripts/build.js | modified use() | ~132 |
+| 09:46 | Edited scripts/build.js | modified code() | ~90 |
+| 09:49 | Edited scripts/build.js | modified if() | ~153 |
+
+## Session: 2026-08-30 09:53
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:53 | mermaid 客户端渲染集成：build.js 用 marked.use({renderer:{code({text,lang})}}) 把 ```mermaid 块输出为 `<pre class="mermaid">` 原样源码（不转义） | scripts/build.js | renderer 生效 | ~2400 |
+| 09:55 | 文章页模板加 mermaid CDN（jsdelivr@11）+ initialize（base 主题+苹果风 themeVariables） | scripts/build.js | 客户端渲染就绪 | ~1800 |
+| 09:56 | 替换 2026-08-27-实体图.md 的 ASCII 线条图为 mermaid graph TD（4 节点 5 边闭环） | cn/网站文章/2026-08-27-实体图.md | 图表美观化 | ~1500 |
+| 09:58 | 修 bug-024：marked v15 renderer 签名（code,infostring→{text,lang}），改用 marked.use 返回 false 走默认 | .wolf/buglog.json | mermaid 块不再当代码块 | ~1200 |
+| 10:00 | 修 bug-025：escapeHtml 破坏 mermaid `<br/>` 语法，移除转义直接输出源码 | scripts/build.js, .wolf/buglog.json | SVG 渲染正确 | ~1000 |
+| 10:02 | npx mermaid-cli 验证语法通过 + 构建全站 + SVG 含 4 节点 5 边闭环配色苹果风 | /tmp/mtest2.svg | 集成验证通过 | ~2500 |
+| 10:03 | 更新 cerebrum.md：mermaid 客户端方案 + marked v15 renderer API 两条学习 | .wolf/cerebrum.md | 跨会话记忆 | ~800 |
+| 10:30 | 更新 anatomy.md build.js 条目（加 mermaid 说明）+ memory.md 会话日志 | .wolf/anatomy.md, .wolf/memory.md | OpenWolf 跟踪闭环 | ~400 |
+| 10:31 | Session end: mermaid 集成完成，等用户确认后部署 | — | ~13900 tok |
+
+## Session: 2026-08-30 09:56
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 09:58 | Edited scripts/build.js | modified if() | ~346 |
+| 09:58 | Edited cn/网站文章/2026-08-27-实体图.md | expanded (+7 lines) | ~142 |
+| 10:08 | mermaid 论文风配色改造 | scripts/build.js, cn/网站文章/2026-08-27-实体图.md | 配色从全灰改三色分类（蓝内容/绿人物/紫机构）+ 重画图为 flowchart LR+subgraph+class 区分节点类型 | ~900 |
+
+## Session: 2026-08-30 12:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:28
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:31
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:32
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:35
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-08-30 12:37
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:41 | Edited scripts/build.js | added 1 condition(s) | ~215 |
+| 15:42 | Edited cn/网站文章/2026-08-27-实体图.md | expanded (+55 lines) | ~981 |
+| 15:45 | Edited site/style.css | CSS: width, page-break-inside | ~100 |
+| 11:02 | mermaid 改手绘 SVG（论文风） | scripts/build.js, cn/网站文章/2026-08-27-实体图.md, site/style.css | mermaid 方框无高级感；build.js 加 `svg` 代码块渲染器原样内联；文章图改手绘论文风 SVG（白底/细线/形状区分类型/克制标签）；style.css 加 .entity-diagram 自适应+打印 | ~1100 |
+| 15:47 | Session end: 3 writes across 3 files (build.js, 2026-08-27-实体图.md, style.css) | 4 reads | ~13082 tok |

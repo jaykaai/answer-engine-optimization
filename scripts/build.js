@@ -56,6 +56,29 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 fs.mkdirSync(ARTICLES_DIR, { recursive: true });
 
 // ── 配置 marked ──
+// 自定义 renderer：
+// - mermaid 代码块 → <pre class="mermaid"> 交给客户端 mermaid.js 渲染
+// - svg 代码块 → 原样内联 SVG（论文风手绘图，零依赖、可打印、百度可抓）
+// marked v15+ 的 code 签名是 code({ text, lang, escaped })，不是 (code, infoString)
+marked.use({
+  renderer: {
+    code({ text, lang }) {
+      const l = (lang || '').trim().toLowerCase();
+      if (l === 'mermaid') {
+        // mermaid 源码原样输出，由客户端 mermaid.js 渲染
+        // 不转义：<br/> 等 mermaid 语法需要原样保留；源码来自作者自己写的 Markdown，无 XSS 风险
+        return `<pre class="mermaid">${text}</pre>`;
+      }
+      if (l === 'svg') {
+        // 原样内联 SVG。源码来自作者自己写的 Markdown，无 XSS 钟点
+        // 去掉首尾空白，避免 <p> 包裹或多余空白影响 inline-block 对齐
+        return text.trim();
+      }
+      return false; // 返回 false 走 marked 默认渲染
+    },
+  },
+});
+
 marked.setOptions({
   gfm: true,
   breaks: false,
@@ -379,6 +402,7 @@ ${personJsonLd}
 ${orgJsonLd}
   </script>
   ${faqJsonLd ? `<script type="application/ld+json">\n${faqJsonLd}\n  </script>` : ''}
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 </head>
 <body>
 
@@ -426,6 +450,41 @@ function toggleAnno(id) {
     el.classList.add('show');
     if (mark) mark.classList.add('open');
   }
+}
+// 初始化 mermaid（页面含 <pre class="mermaid"> 时才渲染）
+// 论文风配色：白底 + 低饱和分类色（蓝=内容、绿=人物、紫=机构），
+// 细边、清晰字体，节点类型用颜色区分层次而非全灰
+if (typeof mermaid !== 'undefined') {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      // 通用
+      fontFamily: '-apple-system, "SF Pro Text", "Helvetica Neue", "PingFang SC", sans-serif',
+      fontSize: '15px',
+      lineColor: '#6e6e73',     // 箭头/连线：深灰，克制
+      textColor: '#1d1d1f',     // 节点文字：近黑
+      // 节点主色按 mermaid 类样式区分（primary/secondary/tertiary 对应不同类型）
+      primaryColor: '#e8f0fe',     // 蓝（内容实体：Article/WebSite）
+      primaryBorderColor: '#4285f4',
+      primaryTextColor: '#174ea6',
+      secondaryColor: '#e6f4ea',   // 绿（人物：Person）
+      secondaryBorderColor: '#34a853',
+      secondaryTextColor: '#0d652d',
+      tertiaryColor: '#f3e8fd',     // 紫（机构：Organization）
+      tertiaryBorderColor: '#a142f4',
+      tertiaryTextColor: '#6a1b9a',
+      // 边线粗细
+      primaryGroupBorderColor: '#4285f4',
+      secondaryGroupBorderColor: '#34a853',
+      tertiaryGroupBorderColor: '#a142f4',
+      // subgraph 背景透明
+      clusterBkg: 'transparent',
+      clusterBorder: '#d2d2d7',
+      // 标签
+      edgeLabelBackground: '#ffffff',
+    },
+  });
 }
 </script>
 
