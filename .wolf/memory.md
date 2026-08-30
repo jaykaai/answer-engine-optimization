@@ -655,3 +655,9 @@
 | Time | Action | File(s) | Outcome | ~Tokens |
 |------|--------|---------|---------|--------|
 | 15:55 | 重写实体图 SVG 为苹果风（白底+灰边+色点+大圆角+细线箭头+三列分组） | cn/网站文章/2026-08-27-实体图.md, .wolf/cerebrum.md | build 通过，SVG 内联 ✅ | ~3k |
+| 16:00 | Edited scripts/build.js | removed 9 lines | ~11 |
+| 16:00 | Edited scripts/build.js | modified addMessage() | ~28 |
+| 16:00 | Edited scripts/build.js | modified if() | ~14 |
+| 16:00 | Edited scripts/build.js | 5→4 lines | ~105 |
+| 16:00 | 删首页 System Prompt 白板，对话框上移变大（min-height 50vh + flex 撑满） | scripts/build.js | build 通过，agent-panel/hidePrompt 全删 ✅ | ~2k |
+| 16:01 | Session end: 4 writes across 1 files (build.js) | 1 reads | ~6860 tok |

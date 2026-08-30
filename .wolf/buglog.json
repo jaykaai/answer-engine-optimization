@@ -476,6 +476,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-30T07:45:50.231Z"
+    },
+    {
+      "id": "bug-030",
+      "timestamp": "2026-08-30T08:00:14.092Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "9 lines replaced/restructured",
+      "fix": "Rewrote 13→3 lines (9 removed) | Also: .agent-panel { flex-shrink: 0; transition: all 0.4; .agent-panel.hidden { max-height: 0; opacity: 0; m",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-08-30T08:00:30.138Z"
     }
   ]
 }

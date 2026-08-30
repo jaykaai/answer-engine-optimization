@@ -563,11 +563,10 @@ function renderHomepage(articles) {
   <style>
     .home { display: flex; flex-direction: column; height: 100vh; }
     .home-header { flex-shrink: 0; }
-    .agent-panel { flex-shrink: 0; transition: all 0.4s ease; overflow: hidden; max-height: 300px; }
-    .agent-panel.hidden { max-height: 0; opacity: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; border: none; }
+    .home { min-height: calc(100vh - 4rem); display: flex; flex-direction: column; }
+    .home-header { flex-shrink: 0; }
     .chat-section { flex: 1; display: flex; flex-direction: column; min-height: 0; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e5ea; }
-    .chat-section.expanded { margin-top: 0; padding-top: 0; border-top: none; }
-    .chat-messages { flex: 1; overflow-y: auto; margin-bottom: 1rem; }
+    .chat-messages { flex: 1; overflow-y: auto; margin-bottom: 1rem; min-height: 50vh; }
     .chat-messages .msg { padding: 0.75rem 1rem; border-radius: 12px; margin-bottom: 0.75rem; max-width: 85%; line-height: 1.6; font-size: 0.9375rem; }
     .chat-messages .msg-user { background: #0071e3; color: #fff; margin-left: auto; }
     .chat-messages .msg-agent { background: #f0f0f2; color: #1d1d1f; }
@@ -595,15 +594,7 @@ function renderHomepage(articles) {
     <div class="sub">GEO Research Agent · 生成式引擎优化</div>
   </div>
 
-  <div class="agent-panel">
-    <div class="sys-label">╭─ SYSTEM PROMPT ────────────────────────────────╮</div>
-    <div class="sys-line">你是一个 <span class="hl">GEO（生成式引擎优化）</span> 研究 Agent。</div>
-    <div class="sys-line">知识库已加载 · <span class="hl">${articleCount} 篇文章</span> · <span class="hl">${topicCount} 个话题</span>。</div>
-    <div class="sys-line">在下方输入问题，我会为你匹配相关文章。</div>
-    <div class="sys-label">╰──────────────────────────────────────────────────╯</div>
-  </div>
-
-  <div class="chat-section">
+  <div class="chat-section expanded">
     <div class="chat-messages" id="chatMessages"></div>
     <div class="chat-input-row">
       <input type="text" id="chatInput" value="列举所有文章列表" autofocus autocomplete="off">
@@ -620,17 +611,7 @@ function renderHomepage(articles) {
   var input = document.getElementById('chatInput');
   var sendBtn = document.getElementById('sendBtn');
   var messages = document.getElementById('chatMessages');
-  var agentPanel = document.querySelector('.agent-panel');
   var chatSection = document.querySelector('.chat-section');
-  var hasSearched = false;
-
-  function hidePrompt() {
-    if (!hasSearched) {
-      hasSearched = true;
-      agentPanel.classList.add('hidden');
-      chatSection.classList.add('expanded');
-    }
-  }
 
   function addMessage(html, type) {
     var div = document.createElement('div');
@@ -680,7 +661,6 @@ function renderHomepage(articles) {
   function send() {
     var q = input.value.trim();
     if (!q) return;
-    hidePrompt();
     if (q === '列举所有文章列表') {
       addMessage('列举所有文章列表', 'user');
       listAllArticles();
