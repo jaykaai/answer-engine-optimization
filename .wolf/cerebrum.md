@@ -73,6 +73,16 @@
 - 首页设计：Agent 系统提示框 + **AI 搜索对话**（搜索框输入关键词，AI 返回文章列表，点击跳转）
 - 已移除静态话题列表，搜索是唯一的内容发现方式
 - 文章页设计：苹果宽屏卡（960px），红绿灯终端条 + 白底正文 + 代码块 Apple Xcode 风格
+- **[铁律] 文章配图 = 手绘 SVG（论文级苹果风）**。不用 mermaid、不用截图、不用外部图。理由：①mermaid 自动布局 + 方框阴影 = 工具感，达不到苹果风高级感；②纯 SVG 零依赖、百度可抓、打印不丢、无 CDN 等待。**苹果风 SVG 要素（必须全部满足）**：
+  - **配色克制**：节点**不用饱和填色区分类型**——所有卡片用白 `#ffffff` 或极淡灰 `#fbfbfd` 填充、统一细灰边 `#d2d2d7`/1px；类型区分**只用一个小色点**（3.5px 圆点 + 标签色 `#0071e3`蓝/`#34c759`绿/`#af52de`紫）放在卡片左上角。**禁忌**：`#f0f5ff`+`#3b6fd4` 这种"淡填+深边同色系"仍是工具感，已废弃；`#edf7ee`+`#2e8b4e`、`#f7f0fb`+`#7a3fb4` 同理太饱和。正确做法是白底+灰边+色点。连线用 `#a1a1a6`/1.1px 极淡灰。
+  - **形状语言**：统一用大圆角矩形卡片 `rx="16"`（核心节点 `rx="18"` 且尺寸略大），避免方角；**不要**用虚线边/双线边区分类型（工具感），类型只靠色点+标签区分。卡片内部用 `#ececee`/1px 极淡分割线分隔标题与属性列表。不用阴影（苹果风卡片靠边框不靠投影）。
+  - **细线**：边框 1px、连线 1-1.2px、`stroke-linecap="round"`
+  - **留白**：节点内 padding 充足、节点间距大、viewBox 不挤满
+  - **字体**：`-apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif`；节点标题 15px `font-weight:600` `#1d1d1f`、属性 12.5px `#6e6e73`、类型标签 11px `#86868b` `letter-spacing:.5px` 全大写（如 `ARTICLE`/`PERSON`/`ORGANIZATION`）、边标签 12px `#6e6e73`；`text-anchor="middle"` 居中标题；卡片内属性左对齐 `@id`/`sameAs`/`knowsAbout` 列表。
+  - **布局**：三列分组（内容实体 / 人物实体 / 机构实体），顶部用 11px `#86868b` 分组标题；人物卡片居中且尺寸最大（核心节点）；弧线连线走卡片间留白区，回流弧线（如 founder → person）绕上方走不与其他线交叉；图注放 viewBox 底部一行。
+  - **箭头**：`<marker>` 自定义，箭头用**细线勾勒**（`<path d="M0,1 L9,5 L0,9" fill="none" stroke="#86868b" stroke-width="1.4">`）而非实心三角 `fill`——线条式箭头更苹果风；`markerWidth/Height="6"` 小而克制；边标签用 12px `#6e6e73` 灰，放在弧线中点上方，不啰嗦（单字段名如 `author`/`publisher`，不加中文重复）。
+  - **图注**：图下方一行 12px `#86868b` 灰字，一句话点明图的读法
+  - build.js 已支持：`marked.use` renderer 的 `svg` 分支 `return text.trim()` 原样内联；CSS `.article-body svg.entity-diagram` 控宽自适应+打印不断页
 - robots.txt 全部放行（含 AI 爬虫），无屏蔽理由
 - JSON-LD 自动生成：Article + Person + FAQPage + sameAs
 

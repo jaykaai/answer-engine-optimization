@@ -648,3 +648,10 @@
 | 15:45 | Edited site/style.css | CSS: width, page-break-inside | ~100 |
 | 11:02 | mermaid 改手绘 SVG（论文风） | scripts/build.js, cn/网站文章/2026-08-27-实体图.md, site/style.css | mermaid 方框无高级感；build.js 加 `svg` 代码块渲染器原样内联；文章图改手绘论文风 SVG（白底/细线/形状区分类型/克制标签）；style.css 加 .entity-diagram 自适应+打印 | ~1100 |
 | 15:47 | Session end: 3 writes across 3 files (build.js, 2026-08-27-实体图.md, style.css) | 4 reads | ~13082 tok |
+| 15:53 | Edited cn/网站文章/2026-08-27-实体图.md | expanded (+12 lines) | ~1121 |
+
+## Session: 2026-08-30 15:54
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 15:55 | 重写实体图 SVG 为苹果风（白底+灰边+色点+大圆角+细线箭头+三列分组） | cn/网站文章/2026-08-27-实体图.md, .wolf/cerebrum.md | build 通过，SVG 内联 ✅ | ~3k |
