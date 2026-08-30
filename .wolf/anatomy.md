@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T08:26:32.915Z
-> Files: 41 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T08:46:26.232Z
+> Files: 42 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
@@ -28,7 +28,7 @@
 
 ## cn/学习/
 
-- `学习进度.md` — 中国 GEO 学习进度 (~1009 tok)
+- `学习进度.md` — 中国 GEO 学习进度 (~1033 tok)
 
 ## cn/学习/（学习管理：计划 + 进度）
 
@@ -53,6 +53,7 @@
 - `2026-08-25-自足段落.md` — 为什么 AI 搜索引擎需要自足段落？ (~804 tok)
 - `2026-08-26-让AI引用你.md` — 为什么 AI 引擎只引用带数字的段落？ (~536 tok)
 - `2026-08-27-实体图.md` — 先搞懂：AI 怎么读你的网页 (~3101 tok)
+- `2026-08-30-llms-txt.md` — 三个文件，三个分工 (~1763 tok)
 - `写作指南.md` — 文章写作指南 (~1409 tok)
 
 ## cn/网站文章/（Markdown 源文件，`npm run build` 自动生成 site/）
