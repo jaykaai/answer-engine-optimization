@@ -823,3 +823,7 @@
 | $(date +%H:%M) | 第 9 课完成：build.js 加 renderSitemap 自动生成 sitemap.xml（lastmod 用源文件 mtime），修复 sitemap 只列 3 篇的过期问题；撰写文章 nei-rong-xin-xian-du.md | scripts/build.js + cn/网站文章/2026-08-30-nei-rong-xin-xian-du.md | build 通过 6 篇 | ~4500t |
 | 21:13 | Session end: 8 writes across 4 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md) | 6 reads | ~15983 tok |
 | 21:16 | Session end: 8 writes across 4 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md) | 6 reads | ~15983 tok |
+| 21:43 | Session end: 8 writes across 4 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md) | 6 reads | ~15983 tok |
+| 21:49 | Created cn/网站文章/2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md | — | ~1052 |
+| 21:50 | Edited cn/学习/学习进度.md | inline fix | ~32 |
+| $(date +%H:%M) | 第 10 课完成，撰写文章 zhong-guo-ai-yin-qing-gua-pei.md（联网搜索型 vs 闭卷问答型、逐方法适配表、监控基线、百度百科门槛与三阶段路线） | cn/网站文章/2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md | build 通过 7 篇 | ~4000t |
