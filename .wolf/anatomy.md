@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T08:00:30.129Z
-> Files: 40 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T08:26:32.915Z
+> Files: 41 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
@@ -79,6 +79,7 @@
 - `demo-apple-style.html` — 演示页 — 苹果风格文章排版 (~2107 tok)
 - `demo-terminal-agent.html` — 演示 · 宽屏终端 · AI Agent 风格 (~3688 tok)
 - `index.html` — 纪优 — GEO 研究站 (~1877 tok)
+- `llms.txt` — 纪优 GEO 研究 (~153 tok)
 - `robots.txt` — robots.txt — 全部爬虫放行，包括 AI 引擎爬虫 (~99 tok)
 - `sitemap.xml` (~216 tok)
 - `style.css` — Styles: 85 rules (~2930 tok)

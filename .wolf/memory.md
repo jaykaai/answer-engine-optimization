@@ -661,3 +661,5 @@
 | 16:00 | Edited scripts/build.js | 5→4 lines | ~105 |
 | 16:00 | 删首页 System Prompt 白板，对话框上移变大（min-height 50vh + flex 撑满） | scripts/build.js | build 通过，agent-panel/hidePrompt 全删 ✅ | ~2k |
 | 16:01 | Session end: 4 writes across 1 files (build.js) | 1 reads | ~6860 tok |
+| 16:26 | Created site/llms.txt | — | ~163 |
+| 16:26 | Session end: 5 writes across 2 files (build.js, llms.txt) | 4 reads | ~8044 tok |
