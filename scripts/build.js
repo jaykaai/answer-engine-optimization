@@ -728,6 +728,47 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
+// ── 生成 sitemap.xml（每次 build 自动刷新，杜绝手工维护过期）──
+// lastmod 用文章源文件的修改时间（mtime），真实反映内容新鲜度，
+// 供 AI 引擎/搜索引擎判断"这个站最近有没有更新"（Content Freshness）
+function renderSitemap(articles) {
+  const today = new Date().toISOString().slice(0, 10);
+
+  // 首页：lastmod = 今天（每次构建都更新过）
+  const entries = [
+    `  <url>
+    <loc>${SITE_URL}/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>`,
+  ];
+
+  for (const article of articles) {
+    // 用源文件 mtime 作为 lastmod，比 frontmatter date 更准（反映真实编辑时间）
+    let lastmod;
+    try {
+      const stat = fs.statSync(path.join(SRC_DIR, article.file));
+      lastmod = stat.mtime.toISOString().slice(0, 10);
+    } catch {
+      lastmod = article.date || today;
+    }
+
+    entries.push(`  <url>
+    <loc>${SITE_URL}/articles/${article.slug}.html</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`);
+  }
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries.join('\n')}
+</urlset>
+`;
+}
+
 // ── 主流程 ──
 function main() {
   console.log('🔨 构建开始...');
@@ -753,6 +794,11 @@ function main() {
   const homepage = renderHomepage(articles);
   fs.writeFileSync(path.join(OUT_DIR, 'index.html'), homepage, 'utf-8');
   console.log('  ✅  index.html');
+
+  // 生成 sitemap.xml（自动刷新，跟进新增文章与 lastmod）
+  const sitemap = renderSitemap(articles);
+  fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'), sitemap, 'utf-8');
+  console.log('  ✅  sitemap.xml');
 
   console.log('🎉 构建完成！');
 }

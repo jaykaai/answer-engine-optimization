@@ -541,6 +541,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-30T10:25:00.000Z"
+    },
+    {
+      "id": "bug-034",
+      "timestamp": "2026-08-30T13:03:10.914Z",
+      "error_message": "Missing error handling in renderSitemap",
+      "file": "scripts/build.js",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T13:03:10.914Z"
     }
   ]
 }

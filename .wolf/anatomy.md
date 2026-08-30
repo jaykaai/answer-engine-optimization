@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T11:17:59.364Z
-> Files: 44 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T13:05:33.320Z
+> Files: 45 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
@@ -28,7 +28,7 @@
 
 ## cn/学习/
 
-- `学习进度.md` — 中国 GEO 学习进度 (~1047 tok)
+- `学习进度.md` — 中国 GEO 学习进度 (~1070 tok)
 
 ## cn/学习/（学习管理：计划 + 进度）
 
@@ -53,9 +53,9 @@
 - `2026-08-25-自足段落.md` — 为什么 AI 搜索引擎需要自足段落？ (~804 tok)
 - `2026-08-26-让AI引用你.md` — 为什么 AI 引擎只引用带数字的段落？ (~536 tok)
 - `2026-08-27-实体图.md` — 先搞懂：AI 怎么读你的网页 (~3101 tok)
-- `2026-08-30-ai-pa-chong-guan-li.md` — robots.txt 的两个基本事实 (~2200 tok)
 - `2026-08-30-ai-pa-chong-guan-li.md` — AI 爬虫管理：谁在抓你的站、该放谁进 (~2100 tok)
 - `2026-08-30-llms-txt.md` — llms.txt：给 AI 一份你的网站说明书 (~1763 tok)
+- `2026-08-30-nei-rong-xin-xian-du.md` — 为什么 AI 引擎偏爱新鲜内容 (~1468 tok)
 - `写作指南.md` — 文章写作指南 (~1409 tok)
 
 ## cn/网站文章/（Markdown 源文件，`npm run build` 自动生成 site/）
@@ -72,7 +72,7 @@
 
 ## scripts/
 
-- `build.js` — build.js — 极简文章构建脚本 (~6674 tok)
+- `build.js` — build.js — 极简文章构建脚本 (~7040 tok)
 - `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/

@@ -815,3 +815,9 @@
 | 19:17 | Edited scripts/build.js | modified send() | ~56 |
 | 10:30 | 修复 header 折叠不生效 bug：根本原因是首页由 build.js 模板生成，之前改了 site/index.html 被覆盖 | scripts/build.js | 修复构建通过 | ~200 |
 | 19:20 | Session end: 4 writes across 2 files (index.html, build.js) | 3 reads | ~12579 tok |
+| 19:26 | Session end: 4 writes across 2 files (index.html, build.js) | 6 reads | ~13830 tok |
+| 21:03 | Edited scripts/build.js | added error handling | ~320 |
+| 21:03 | Edited scripts/build.js | 6→11 lines | ~110 |
+| 21:05 | Created cn/网站文章/2026-08-30-nei-rong-xin-xian-du.md | — | ~1566 |
+| 21:05 | Edited cn/学习/学习进度.md | inline fix | ~42 |
+| $(date +%H:%M) | 第 9 课完成：build.js 加 renderSitemap 自动生成 sitemap.xml（lastmod 用源文件 mtime），修复 sitemap 只列 3 篇的过期问题；撰写文章 nei-rong-xin-xian-du.md | scripts/build.js + cn/网站文章/2026-08-30-nei-rong-xin-xian-du.md | build 通过 6 篇 | ~4500t |
