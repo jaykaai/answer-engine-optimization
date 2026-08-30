@@ -510,3 +510,7 @@
 | 21:59 | Created cn/网站文章/2026-08-27-实体图.md | — | ~3087 |
 | 21:55 | 第6课实战文章写成：《怎么让 AI 引擎认出"你是谁"？JSON-LD 实体图实战》，含改造前/后代码对比 + 实体图结构图 + 三字段配合 | cn/网站文章/2026-08-27-实体图.md | ✅ build 通过，自动带 4 块 JSON-LD | ~4k |
 | 22:02 | Session end: 3 writes across 3 files (build.js, 学习进度.md, 2026-08-27-实体图.md) | 2 reads | ~10070 tok |
+| 09:21 | Created cn/网站文章/2026-08-27-实体图.md | — | ~2443 |
+| 09:21 | Session end: 4 writes across 3 files (build.js, 学习进度.md, 2026-08-27-实体图.md) | 2 reads | ~12688 tok |
+| 09:25 | Created cn/网站文章/2026-08-27-实体图.md | — | ~2539 |
+| 09:25 | Session end: 5 writes across 3 files (build.js, 学习进度.md, 2026-08-27-实体图.md) | 2 reads | ~15408 tok |
