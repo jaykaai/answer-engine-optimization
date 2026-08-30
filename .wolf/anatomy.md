@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T11:09:13.155Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T11:17:59.364Z
 > Files: 44 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
@@ -72,7 +72,7 @@
 
 ## scripts/
 
-- `build.js` — build.js — 极简文章构建脚本 (~6443 tok)
+- `build.js` — build.js — 极简文章构建脚本 (~6674 tok)
 - `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/

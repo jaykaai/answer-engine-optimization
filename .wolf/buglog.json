@@ -508,6 +508,39 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-30T11:09:07.015Z"
+    },
+    {
+      "id": "bug-032",
+      "timestamp": "2026-08-30T11:17:53.361Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 5→12 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T11:17:53.361Z"
+    },
+    {
+      "id": "bug-033",
+      "timestamp": "2026-08-30T10:25:00.000Z",
+      "error_message": "首页 header 折叠不生效——改了 site/index.html 但 build 后无效果",
+      "file": "scripts/build.js",
+      "root_cause": "site/index.html 不是源文件，首页由 build.js 的 renderHomepage() 模板动态生成。直接改 site/index.html 在下次 build 时就被旧模板覆盖了。",
+      "fix": "同时修改 scripts/build.js 中 renderHomepage() 的 CSS 模板和 JS 模板（.home--chatting 折叠状态 + classList.add）",
+      "tags": [
+        "build",
+        "template",
+        "homepage",
+        "source-of-truth"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T10:25:00.000Z"
     }
   ]
 }

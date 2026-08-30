@@ -811,3 +811,7 @@
 | 19:09 | Edited site/index.html | modified send() | ~44 |
 | 10:20 | 首页 header 折叠交互：发消息后 header 收折为细顶栏，释放聊天空间 | site/index.html | 构建通过 | ~500 |
 | 19:10 | Session end: 2 writes across 1 files (index.html) | 2 reads | ~5768 tok |
+| 19:17 | Edited scripts/build.js | expanded (+7 lines) | ~312 |
+| 19:17 | Edited scripts/build.js | modified send() | ~56 |
+| 10:30 | 修复 header 折叠不生效 bug：根本原因是首页由 build.js 模板生成，之前改了 site/index.html 被覆盖 | scripts/build.js | 修复构建通过 | ~200 |
+| 19:20 | Session end: 4 writes across 2 files (index.html, build.js) | 3 reads | ~12579 tok |

@@ -561,11 +561,18 @@ function renderHomepage(articles) {
   }
   </script>
   <style>
-    .home { display: flex; flex-direction: column; height: 100vh; }
-    .home-header { flex-shrink: 0; }
-    .home { min-height: calc(100vh - 4rem); display: flex; flex-direction: column; }
-    .home-header { flex-shrink: 0; }
-    .chat-section { flex: 1; display: flex; flex-direction: column; min-height: 0; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e5ea; }
+    .home { display: flex; flex-direction: column; min-height: 100vh; padding-top: 3rem; transition: padding-top 0.4s ease; }
+    .home-header { flex-shrink: 0; margin-bottom: 2rem; transition: margin-bottom 0.4s ease, padding 0.4s ease; }
+    .home-header .name { transition: font-size 0.4s ease, letter-spacing 0.4s ease; }
+    .home-header .sub { transition: font-size 0.4s ease, opacity 0.4s ease; }
+    .chat-section { flex: 1; display: flex; flex-direction: column; min-height: 0; border-top: 1px solid #e5e5ea; padding-top: 1.5rem; transition: border-color 0.4s ease, padding-top 0.4s ease; }
+
+    /* 折叠 — 发消息后 header 收折为细顶栏 */
+    .home--chatting { padding-top: 1rem; }
+    .home--chatting .home-header { margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e5e5ea; display: flex; align-items: baseline; gap: 0.5rem; }
+    .home--chatting .home-header .name { font-size: 1rem; letter-spacing: 0; }
+    .home--chatting .home-header .sub { font-size: 0.8125rem; margin-top: 0; }
+    .home--chatting .chat-section { border-top-color: transparent; padding-top: 0.75rem; }
     .chat-messages { flex: 1; overflow-y: auto; margin-bottom: 1rem; min-height: 50vh; }
     .chat-messages .msg { padding: 0.75rem 1rem; border-radius: 12px; margin-bottom: 0.75rem; max-width: 85%; line-height: 1.6; font-size: 0.9375rem; }
     .chat-messages .msg-user { background: #0071e3; color: #fff; margin-left: auto; }
@@ -661,6 +668,8 @@ function renderHomepage(articles) {
   function send() {
     var q = input.value.trim();
     if (!q) return;
+    // 首次用户发消息 → header 收折
+    document.querySelector('.home').classList.add('home--chatting');
     if (q === '列举所有文章列表') {
       addMessage('列举所有文章列表', 'user');
       listAllArticles();
