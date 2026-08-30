@@ -492,6 +492,22 @@
       "related_bugs": [],
       "occurrences": 2,
       "last_seen": "2026-08-30T08:00:30.138Z"
+    },
+    {
+      "id": "bug-031",
+      "timestamp": "2026-08-30T11:09:07.015Z",
+      "error_message": "Significant refactor of ",
+      "file": "site/index.html",
+      "root_cause": "5 lines replaced/restructured",
+      "fix": "Rewrote 5→12 lines (5 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "html"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-08-30T11:09:07.015Z"
     }
   ]
 }
