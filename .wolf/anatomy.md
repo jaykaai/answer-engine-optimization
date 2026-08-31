@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-31T14:05:43.488Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-31T14:21:18.459Z
 > Files: 45 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
@@ -52,7 +52,7 @@
 - `2026-08-30-ai-pa-chong-guan-li.md` — AI 爬虫管理：谁在抓你的站、该放谁进 (~2100 tok)
 - `2026-08-30-llms-txt.md` — llms.txt：给 AI 一份你的网站说明书 (~1763 tok)
 - `2026-08-30-nei-rong-xin-xian-du.md` — 为什么 AI 引擎偏爱新鲜内容 (~1468 tok)
-- `2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md` — 先回到那个问题 (~1139 tok)
+- `2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md` — 先回到那个问题 (~2389 tok)
 - `2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md` — 先认清中国 AI 引擎的地形 (~986 tok)
 - `写作指南.md` — 文章写作指南 (~1409 tok)
 

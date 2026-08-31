@@ -557,6 +557,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-08-30T13:03:10.914Z"
+    },
+    {
+      "id": "bug-035",
+      "timestamp": "2026-08-31T14:21:01.091Z",
+      "error_message": "Significant refactor of ",
+      "file": "cn/网站文章/2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md",
+      "root_cause": "12 lines replaced/restructured",
+      "fix": "Rewrote 14→61 lines (12 removed) | Also: 第一层 · 预训练          第二层 · 指令训练         第三层 · 现场判断; 统计信号                 引用偏好                  对比取舍",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 2,
+      "last_seen": "2026-08-31T14:21:18.482Z"
     }
   ]
 }

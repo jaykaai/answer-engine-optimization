@@ -23,19 +23,66 @@ faq:
 
 答案要从大模型训练的三个阶段里找。这个机制分三层，一层比一层深。
 
-```
-  用户提问           ① 检索              ② 排序             ③ 合成
- ┌─────────┐      ┌─────────────┐    ┌──────────────┐    ┌────────────┐
- │ 什么是   │ ───▶ │ 切段 → 向量匹配 │ ─▶ │ 数字/来源/新鲜度│ ─▶ │ 拼成回答   │
- │ GEO？    │      │ 找到相关片段   │    │ 打分挑最可信  │    │ 标注你的来源│
- └─────────┘      └─────────────┘    └──────────────┘    └────────────┘
-                                                                  │
-                                                                  ▼
-                                                        ┌──────────────────┐
-                                                        │ 你的段落被引用    │
-                                                        │ 回答末尾出现      │
-                                                        │ jiyou.site 来源   │
-                                                        └──────────────────┘
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="RAG 三段管道：检索-排序-合成" class="entity-diagram">
+  <defs>
+    <style>
+      .tt{font:600 15px -apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;fill:#1d1d1f}
+      .sub{font:12.5px -apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;fill:#6e6e73}
+      .tag{font:11px -apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;fill:#86868b;letter-spacing:.5px}
+      .card{fill:#ffffff;stroke:#d2d2d7;stroke-width:1}
+      .divider{stroke:#ececee;stroke-width:1}
+      .dotBlue{fill:#0071e3}.dotGreen{fill:#34c759}.dotPurple{fill:#af52de}
+      .nl{stroke:#a1a1a6;stroke-width:1.1;fill:none;stroke-linecap:round}
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9" fill="none" stroke="#86868b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="36" text-anchor="middle" class="tag">RAG 三段管道 · 你的问题怎么变成带来源的回答</text>
+
+  <!-- 提问 -->
+  <rect x="40" y="70" width="170" height="90" rx="14" class="card"/>
+  <circle cx="60" cy="94" r="3.5" class="dotBlue"/>
+  <text x="72" y="98" class="tag">用户提问</text>
+  <text x="125" y="128" text-anchor="middle" class="tt">“什么是 GEO？”</text>
+  <text x="125" y="148" text-anchor="middle" class="sub">你的问题向量</text>
+
+  <!-- 检索 -->
+  <rect x="250" y="70" width="200" height="90" rx="16" class="card"/>
+  <circle cx="270" cy="94" r="3.5" class="dotBlue"/>
+  <text x="282" y="98" class="tag">① 检索</text>
+  <text x="350" y="128" text-anchor="middle" class="tt">切段 → 向量匹配</text>
+  <text x="350" y="148" text-anchor="middle" class="sub">找到相关片段</text>
+
+  <!-- 排序 -->
+  <rect x="490" y="70" width="200" height="90" rx="16" class="card"/>
+  <circle cx="510" y="94" r="3.5" class="dotGreen"/>
+  <text x="522" y="98" class="tag">② 排序</text>
+  <text x="590" y="128" text-anchor="middle" class="tt">数字/来源/新鲜度</text>
+  <text x="590" y="148" text-anchor="middle" class="sub">打分挑最可信的几段</text>
+
+  <!-- 合成 -->
+  <rect x="730" y="70" width="140" height="90" rx="16" class="card"/>
+  <circle cx="750" cy="94" r="3.5" class="dotPurple"/>
+  <text x="762" y="98" class="tag">③ 合成</text>
+  <text x="800" y="128" text-anchor="middle" class="tt">拼成回答</text>
+  <text x="800" y="148" text-anchor="middle" class="sub">标注你的来源</text>
+
+  <!-- 箭头 -->
+  <line x1="210" y1="115" x2="250" y2="115" class="nl" marker-end="url(#arr)"/>
+  <line x1="450" y1="115" x2="490" y2="115" class="nl" marker-end="url(#arr)"/>
+  <line x1="690" y1="115" x2="730" y2="115" class="nl" marker-end="url(#arr)"/>
+
+  <!-- 结果 -->
+  <rect x="290" y="200" width="320" height="70" rx="14" class="card" fill="#fbfbfd"/>
+  <text x="450" y="228" text-anchor="middle" class="tt">你的段落被引用</text>
+  <text x="450" y="250" text-anchor="middle" class="sub">回答末尾出现 jiyou.site 来源链接</text>
+  <line x1="800" y1="160" x2="620" y2="205" class="nl" marker-end="url(#arr)"/>
+
+  <text x="450" y="290" text-anchor="middle" class="tag">你学的每个方法，都在帮“某一段”在 ①②③ 里胜出</text>
+</svg>
 ```
 
 ## 第一层：预训练——模型"见过"的东西
@@ -75,17 +122,64 @@ faq:
 
 模型在"现场"用自己的语言理解能力做判断——**它没法真正核实谁对谁错，只能靠"哪个看起来更可信"来判断**。而这个"看起来可信"，就是它从预训练学到的统计信号 + 指令训练学到的引用偏好，叠加的结果。
 
-```
-第一层 · 预训练          第二层 · 指令训练         第三层 · 现场判断
- 统计信号                 引用偏好                  对比取舍
-─────────────          ─────────────            ─────────────
- 数字/来源/笃定          训练教它引用权威来源       候选片段现场对比
-     ↓                      ↓                        ↓
- 在语料里常伴"事实"       RLHF 给有出处高分        选"看起来最可信"的
-     ↓                      ↓                        ↓
- 模型自己归纳规律         有出处 > 没出处           具体 > 含糊
-────────────────────────────────────────────────────────────────
-                    三层叠加 → AI 靠"哪个像事实"取舍
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="三层机制：为什么 AI 偏爱像事实的内容" class="entity-diagram">
+  <defs>
+    <style>
+      .tt{font:600 15px -apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;fill:#1d1d1f}
+      .sub{font:12.5px -apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;fill:#6e6e73}
+      .tag{font:11px -apple-system,"SF Pro Text","PingFang SC","Helvetica Neue",sans-serif;fill:#86868b;letter-spacing:.5px}
+      .card{fill:#ffffff;stroke:#d2d2d7;stroke-width:1}
+      .divider{stroke:#ececee;stroke-width:1}
+      .dotBlue{fill:#0071e3}.dotGreen{fill:#34c759}.dotPurple{fill:#af52de}
+      .nl{stroke:#a1a1a6;stroke-width:1.1;fill:none;stroke-linecap:round}
+    </style>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9" fill="none" stroke="#86868b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <text x="450" y="32" text-anchor="middle" class="tag">三层机制 · 为什么 AI 偏爱“像事实”的段落</text>
+
+  <!-- 第一层 -->
+  <rect x="30" y="60" width="260" height="150" rx="16" class="card"/>
+  <circle cx="50" cy="84" r="3.5" class="dotBlue"/>
+  <text x="62" y="88" class="tag">第一层 · 预训练</text>
+  <text x="160" y="118" text-anchor="middle" class="tt">统计信号</text>
+  <line x1="50" y1="136" x2="270" y2="136" class="divider"/>
+  <text x="160" y="158" text-anchor="middle" class="sub">数字 / 来源 / 笃定</text>
+  <text x="160" y="178" text-anchor="middle" class="sub">在语料里常伴“事实”</text>
+  <text x="160" y="198" text-anchor="middle" class="tag">模型自己归纳出的规律</text>
+
+  <!-- 第二层 -->
+  <rect x="320" y="60" width="260" height="150" rx="16" class="card"/>
+  <circle cx="340" cy="84" r="3.5" class="dotGreen"/>
+  <text x="352" y="88" class="tag">第二层 · 指令训练</text>
+  <text x="450" y="118" text-anchor="middle" class="tt">引用偏好</text>
+  <line x1="340" y1="136" x2="560" y2="136" class="divider"/>
+  <text x="450" y="158" text-anchor="middle" class="sub">训练教它引用权威来源</text>
+  <text x="450" y="178" text-anchor="middle" class="sub">RLHF 给有出处回答高分</text>
+  <text x="450" y="198" text-anchor="middle" class="tag">有出处 ＞ 没出处</text>
+
+  <!-- 第三层 -->
+  <rect x="610" y="60" width="260" height="150" rx="16" class="card"/>
+  <circle cx="630" cy="84" r="3.5" class="dotPurple"/>
+  <text x="642" y="88" class="tag">第三层 · 现场判断</text>
+  <text x="740" y="118" text-anchor="middle" class="tt">对比取舍</text>
+  <line x1="630" y1="136" x2="850" y2="136" class="divider"/>
+  <text x="740" y="158" text-anchor="middle" class="sub">候选片段现场对比</text>
+  <text x="740" y="178" text-anchor="middle" class="sub">选“看起来最可信”的</text>
+  <text x="740" y="198" text-anchor="middle" class="tag">具体 ＞ 含糊</text>
+
+  <!-- 箭头 -->
+  <line x1="290" y1="135" x2="320" y2="135" class="nl" marker-end="url(#arr2)"/>
+  <line x1="580" y1="135" x2="610" y2="135" class="nl" marker-end="url(#arr2)"/>
+
+  <!-- 底部结论 -->
+  <rect x="30" y="235" width="840" height="52" rx="14" class="card" fill="#fbfbfd"/>
+  <text x="450" y="258" text-anchor="middle" class="tt">三层叠加 → AI 只能靠“哪个看起来像事实”做取舍</text>
+  <text x="450" y="278" text-anchor="middle" class="sub">你的任务 = 让段落看起来像无可置疑的事实（数字 / 来源 / 笃定 / 直接答案）</text>
+</svg>
 ```
 
 ## 三层机制合一：为什么"像事实"有效
