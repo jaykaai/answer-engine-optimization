@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-31T12:15:03.798Z
-> Files: 46 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-31T14:05:43.488Z
+> Files: 45 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
@@ -29,7 +29,7 @@
 ## cn/学习/
 
 - `学习计划.md` — GEO 学习计划（进阶精通版） (~666 tok)
-- `学习进度.md` — 中国 GEO 学习进度 (~1139 tok)
+- `学习进度.md` — 中国 GEO 学习进度 (~1155 tok)
 
 ## cn/知乎文章/（内容产出：已发布/待发布到知乎的文章，按日期+标题命名）
 
@@ -52,6 +52,7 @@
 - `2026-08-30-ai-pa-chong-guan-li.md` — AI 爬虫管理：谁在抓你的站、该放谁进 (~2100 tok)
 - `2026-08-30-llms-txt.md` — llms.txt：给 AI 一份你的网站说明书 (~1763 tok)
 - `2026-08-30-nei-rong-xin-xian-du.md` — 为什么 AI 引擎偏爱新鲜内容 (~1468 tok)
+- `2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md` — 先回到那个问题 (~1139 tok)
 - `2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md` — 先认清中国 AI 引擎的地形 (~986 tok)
 - `写作指南.md` — 文章写作指南 (~1409 tok)
 

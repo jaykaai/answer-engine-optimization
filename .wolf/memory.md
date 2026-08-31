@@ -834,3 +834,12 @@
 | 20:14 | Created cn/学习/学习计划.md | — | ~711 |
 | 20:15 | Edited cn/学习/学习进度.md | expanded (+10 lines) | ~440 |
 | $(date +%H:%M) | 学习计划重大转向：阶段一（1-10 课方法应用）完成，重写为进阶精通版四模块（原理/案例/审计/变现）。用户反馈"没学到原理深度"，目标明确为"成为专家能变现"，产出=深度文章，节奏=细水长流 | cn/学习/学习计划.md + cn/学习/学习进度.md | 重写完成 | ~1200t |
+| 20:18 | Session end: 12 writes across 6 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 7 reads | ~19467 tok |
+| 20:21 | Session end: 12 writes across 6 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 7 reads | ~19467 tok |
+| 21:03 | Edited cn/学习/学习进度.md | 6→6 lines | ~79 |
+| 21:04 | Session end: 13 writes across 6 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 7 reads | ~19600 tok |
+| 21:54 | Session end: 13 writes across 6 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 7 reads | ~19600 tok |
+| 21:56 | Session end: 13 writes across 6 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 7 reads | ~19600 tok |
+| 22:03 | Edited cn/学习/学习进度.md | 6→6 lines | ~83 |
+| 22:05 | Created cn/网站文章/2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md | — | ~1215 |
+| $(date +%H:%M) | 模块一概念 1-1+1-2 完成，撰写原理文章 wei-shen-me-ai-pian-ai-shi-shi.md（三层机制：预训练统计信号/指令训练引用偏好/现场判断对比取舍）。用户要求配图改用终端字符流程图（SVG 显示不出来） | cn/网站文章/2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md | build 通过 8 篇 | ~4000t |
