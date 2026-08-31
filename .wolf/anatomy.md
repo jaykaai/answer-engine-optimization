@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-08-30T13:50:11.227Z
-> Files: 45 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-08-31T12:15:03.798Z
+> Files: 46 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
@@ -24,16 +24,12 @@
 
 ## cn/
 
-- `学习计划.md` — GEO 学习计划（技术强化版） (~1151 tok)
+- `学习计划.md` — GEO 学习计划（进阶精通版） (~666 tok)
 
 ## cn/学习/
 
-- `学习进度.md` — 中国 GEO 学习进度 (~1090 tok)
-
-## cn/学习/（学习管理：计划 + 进度）
-
-- `学习计划.md` — **中国 AEO 核心文档**。百度搜索 + 中国 AI 引擎（百度AI搜/秘塔/Kimi/豆包/通义千问等）的完整学习计划，8 周节奏 (~2155 tok)
-- `学习进度.md` — 中国 GEO 学习进度（8步闭环状态表 + 全网资产清单） (~671 tok)
+- `学习计划.md` — GEO 学习计划（进阶精通版） (~666 tok)
+- `学习进度.md` — 中国 GEO 学习进度 (~1139 tok)
 
 ## cn/知乎文章/（内容产出：已发布/待发布到知乎的文章，按日期+标题命名）
 

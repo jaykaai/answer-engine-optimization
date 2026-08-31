@@ -827,3 +827,10 @@
 | 21:49 | Created cn/网站文章/2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md | — | ~1052 |
 | 21:50 | Edited cn/学习/学习进度.md | inline fix | ~32 |
 | $(date +%H:%M) | 第 10 课完成，撰写文章 zhong-guo-ai-yin-qing-gua-pei.md（联网搜索型 vs 闭卷问答型、逐方法适配表、监控基线、百度百科门槛与三阶段路线） | cn/网站文章/2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md | build 通过 7 篇 | ~4000t |
+| 22:00 | Session end: 10 writes across 5 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 6 reads | ~17144 tok |
+| 20:00 | Session end: 10 writes across 5 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 6 reads | ~17144 tok |
+| 20:03 | Session end: 10 writes across 5 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 6 reads | ~17144 tok |
+| 20:08 | Session end: 10 writes across 5 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 6 reads | ~17144 tok |
+| 20:14 | Created cn/学习/学习计划.md | — | ~711 |
+| 20:15 | Edited cn/学习/学习进度.md | expanded (+10 lines) | ~440 |
+| $(date +%H:%M) | 学习计划重大转向：阶段一（1-10 课方法应用）完成，重写为进阶精通版四模块（原理/案例/审计/变现）。用户反馈"没学到原理深度"，目标明确为"成为专家能变现"，产出=深度文章，节奏=细水长流 | cn/学习/学习计划.md + cn/学习/学习进度.md | 重写完成 | ~1200t |
