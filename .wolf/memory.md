@@ -848,3 +848,8 @@
 | 22:21 | Edited cn/网站文章/2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md | expanded (+47 lines) | ~864 |
 | $(date +%H:%M) | 修正：wei-shen-me-ai-pian-ai-shi-shi.md 的 2 处终端 ASCII 图改为苹果风手绘 SVG。用户纠正"文章不要用终端线条画，按之前写作要求来"——文章配图必须用苹果风 SVG（发布给人/AI 看），ASCII 图只在对话即时讲解用 | cn/网站文章/2026-08-30-wei-shen-me-ai-pian-ai-shi-shi.md | build 通过，2 个 SVG 正确内联 | ~1500t |
 | 22:23 | Session end: 17 writes across 7 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 10 reads | ~23948 tok |
+| 19:24 | Session end: 17 writes across 7 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 10 reads | ~23948 tok |
+| 19:39 | Edited cn/学习/学习进度.md | 6→6 lines | ~85 |
+| 19:43 | Created cn/网站文章/2026-08-30-geo-wu-huan-lian-lu.md | — | ~2100 |
+| 19:44 | Edited cn/网站文章/2026-08-30-geo-wu-huan-lian-lu.md | inline fix | ~16 |
+| $(date +%H:%M) | 模块一概念 1-3 完成，撰写文章 geo-wu-huan-lian-lu.md（GEO 五环链路：发现→准入→读取→索引→引用；每环服务下一环，为做而做无效；核心未验证项=环节⑤引用监控作业）。配苹果风 SVG 五环卡片图 + 纯文本代码块展示清单 | cn/网站文章/2026-08-30-geo-wu-huan-lian-lu.md | build 通过 9 篇 | ~4500t |
