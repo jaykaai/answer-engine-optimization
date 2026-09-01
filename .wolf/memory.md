@@ -854,3 +854,12 @@
 | 19:44 | Edited cn/网站文章/2026-08-30-geo-wu-huan-lian-lu.md | inline fix | ~16 |
 | $(date +%H:%M) | 模块一概念 1-3 完成，撰写文章 geo-wu-huan-lian-lu.md（GEO 五环链路：发现→准入→读取→索引→引用；每环服务下一环，为做而做无效；核心未验证项=环节⑤引用监控作业）。配苹果风 SVG 五环卡片图 + 纯文本代码块展示清单 | cn/网站文章/2026-08-30-geo-wu-huan-lian-lu.md | build 通过 9 篇 | ~4500t |
 | 19:46 | Session end: 20 writes across 8 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 10 reads | ~26306 tok |
+| 19:51 | Edited cn/学习/学习进度.md | 6→6 lines | ~77 |
+| 19:52 | Session end: 21 writes across 8 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 10 reads | ~26399 tok |
+| 20:03 | Session end: 21 writes across 8 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 11 reads | ~26935 tok |
+| 20:26 | Edited cn/网站文章/2026-08-26-让AI引用你.md | expanded (+8 lines) | ~154 |
+| 20:26 | Edited cn/网站文章/2026-08-26-让AI引用你.md | expanded (+6 lines) | ~137 |
+| 20:27 | Edited cn/网站文章/2026-08-26-让AI引用你.md | expanded (+6 lines) | ~123 |
+| 20:27 | Edited cn/网站文章/2026-08-26-让AI引用你.md | expanded (+6 lines) | ~84 |
+| 20:28 | Edited cn/学习/学习进度.md | 6→6 lines | ~92 |
+| $(date +%H:%M) | 模块二完成。2-1 用实测样本(louishe/ithome/aliyun/zenodo)拆出被引用站 5 共性(原创+首句答案+数字可验证+权威加分+新鲜)；2-2 反向拆 jiyou.site，诊断 3 改进点(关键词口径/对象密度/权威锚点)，已用 annotate 工作流批注到《让AI引用你》4 处(before/after 形式,Word式角标+气泡) | cn/网站文章/2026-08-26-让AI引用你.md | build 通过,4 角标+4气泡验证 | ~3000t |

@@ -1,6 +1,6 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-09-01T11:44:27.177Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-09-01T12:28:04.330Z
 > Files: 46 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
@@ -29,7 +29,7 @@
 ## cn/学习/
 
 - `学习计划.md` — GEO 学习计划（进阶精通版） (~666 tok)
-- `学习进度.md` — 中国 GEO 学习进度 (~1156 tok)
+- `学习进度.md` — 中国 GEO 学习进度 (~1164 tok)
 
 ## cn/知乎文章/（内容产出：已发布/待发布到知乎的文章，按日期+标题命名）
 
@@ -47,7 +47,7 @@
 - `2026-08-23-ru-he-rang-bai-du-shou-lu.md` — 网站被百度收录要经过哪几个环节？ (~857 tok)
 - `2026-08-23-structured-data-guide.md` — 什么是结构化数据？ (~841 tok)
 - `2026-08-25-自足段落.md` — 为什么 AI 搜索引擎需要自足段落？ (~804 tok)
-- `2026-08-26-让AI引用你.md` — 为什么 AI 引擎只引用带数字的段落？ (~536 tok)
+- `2026-08-26-让AI引用你.md` — 为什么 AI 引擎只引用带数字的段落？ (~782 tok)
 - `2026-08-27-实体图.md` — 先搞懂：AI 怎么读你的网页 (~3101 tok)
 - `2026-08-30-ai-pa-chong-guan-li.md` — AI 爬虫管理：谁在抓你的站、该放谁进 (~2100 tok)
 - `2026-08-30-geo-wu-huan-lian-lu.md` — 先看整条流水线 (~1971 tok)
