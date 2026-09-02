@@ -864,3 +864,11 @@
 | 20:28 | Edited cn/学习/学习进度.md | 6→6 lines | ~92 |
 | $(date +%H:%M) | 模块二完成。2-1 用实测样本(louishe/ithome/aliyun/zenodo)拆出被引用站 5 共性(原创+首句答案+数字可验证+权威加分+新鲜)；2-2 反向拆 jiyou.site，诊断 3 改进点(关键词口径/对象密度/权威锚点)，已用 annotate 工作流批注到《让AI引用你》4 处(before/after 形式,Word式角标+气泡) | cn/网站文章/2026-08-26-让AI引用你.md | build 通过,4 角标+4气泡验证 | ~3000t |
 | 20:31 | Session end: 26 writes across 9 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 11 reads | ~27934 tok |
+| 20:51 | Session end: 26 writes across 9 files (index.html, build.js, 2026-08-30-nei-rong-xin-xian-du.md, 学习进度.md, 2026-08-30-zhong-guo-ai-yin-qing-gua-pei.md) | 11 reads | ~27934 tok |
+| 19:42 | Edited cn/学习/学习进度.md | 6→6 lines | ~82 |
+| 19:44 | Created cn/网站文章/2026-08-30-geo-liu-wei-shen-ji.md | — | ~1392 |
+| 19:45 | Edited cn/网站文章/2026-08-30-geo-liu-wei-shen-ji.md | 3→3 lines | ~18 |
+| 19:45 | Edited cn/网站文章/2026-08-30-geo-liu-wei-shen-ji.md | 3→3 lines | ~16 |
+| 19:45 | Edited cn/网站文章/2026-08-30-geo-liu-wei-shen-ji.md | 3→3 lines | ~13 |
+| 19:46 | Edited cn/网站文章/2026-08-30-geo-liu-wei-shen-ji.md | removed 9 lines | ~5 |
+| $(date +%H:%M) | 模块三概念 3-1 完成，撰写文章 geo-liu-wei-shen-ji.md（GEO 六维审计：内容/结构化/实体/爬虫/新鲜度/可发现，对应五环链路；0-5分客观判据；报告结构）。配苹果风 SVG 六维卡片图。注意:FAQ的H2需与问题一一对应否则提取失败(本次已把H2改为FAQ问题) | cn/网站文章/2026-08-30-geo-liu-wei-shen-ji.md | build 通过,FAQ提取验证OK | ~4000t |
