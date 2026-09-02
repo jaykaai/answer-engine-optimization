@@ -573,6 +573,54 @@
       "related_bugs": [],
       "occurrences": 2,
       "last_seen": "2026-08-31T14:21:18.482Z"
+    },
+    {
+      "id": "bug-036",
+      "timestamp": "2026-09-02T12:45:40.787Z",
+      "error_message": "Significant refactor of ",
+      "file": "cn/网站文章/2026-08-30-bei-ai-yin-yong-de-zhan.md",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 7→11 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-09-02T12:45:40.787Z"
+    },
+    {
+      "id": "bug-037",
+      "timestamp": "2026-09-02T12:46:16.786Z",
+      "error_message": "Significant refactor of ",
+      "file": "cn/网站文章/2026-08-30-geo-gai-jin-ti-an.md",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 7→11 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-09-02T12:46:16.786Z"
+    },
+    {
+      "id": "bug-038",
+      "timestamp": "2026-09-02T12:46:38.376Z",
+      "error_message": "Significant refactor of ",
+      "file": "cn/网站文章/2026-08-30-geo-xuan-sai-dao.md",
+      "root_cause": "4 lines replaced/restructured",
+      "fix": "Rewrote 7→11 lines (4 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-09-02T12:46:38.376Z"
     }
   ]
 }
