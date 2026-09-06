@@ -621,6 +621,54 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-09-02T12:46:38.376Z"
+    },
+    {
+      "id": "bug-039",
+      "timestamp": "2026-09-03T11:33:59.874Z",
+      "error_message": "Wrong reference: node_modules should be AutoGEO",
+      "file": ".gitignore",
+      "root_cause": "Used \"node_modules\" instead of \"AutoGEO\"",
+      "fix": "Changed node_modules → AutoGEO",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "unknown"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-09-03T11:33:59.874Z"
+    },
+    {
+      "id": "bug-040",
+      "timestamp": "2026-09-06T12:48:37.470Z",
+      "error_message": "Incorrect value in code",
+      "file": "scripts/build.js",
+      "root_cause": "Had 'AI 智能体应用与生成式引擎优化（GEO）研究者'",
+      "fix": "Changed to '豆包 GEO 专家 · 只做一个引擎'",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-09-06T12:48:37.470Z"
+    },
+    {
+      "id": "bug-041",
+      "timestamp": "2026-09-06T12:50:41.619Z",
+      "error_message": "Significant refactor of ",
+      "file": "scripts/build.js",
+      "root_cause": "129 lines replaced/restructured",
+      "fix": "Rewrote 225→538 lines (129 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "js"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-09-06T12:50:41.619Z"
     }
   ]
 }

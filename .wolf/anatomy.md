@@ -1,15 +1,16 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-09-02T12:46:38.366Z
-> Files: 50 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-09-06T12:50:41.605Z
+> Files: 52 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
+- `calm-snacking-frog.md` — 首页重构：从"通用 GEO 研究站"到"豆包 GEO 专家门面" (~520 tok)
 - `mighty-nibbling-rocket.md` — 计划：写完文章后一键 build + commit + push (~540 tok)
 
 ## ./
 
-- `.gitignore` — Git ignore rules (~127 tok)
+- `.gitignore` — Git ignore rules (~129 tok)
 - `CLAUDE.md` — 项目定盘星，强制每次会话先读 (~72 tok)
 - `package.json` — Node.js package manifest (~56 tok)
 - `项目目标.md` — 项目目标（定盘星） (~308 tok)
@@ -28,6 +29,7 @@
 
 ## cn/学习/
 
+- `AutoGEO学习计划.md` — AutoGEO 精通计划（从入门到精通） (~3972 tok)
 - `学习计划.md` — GEO 学习计划（进阶精通版） (~666 tok)
 - `学习进度.md` — 中国 GEO 学习进度 (~1168 tok)
 
@@ -75,7 +77,7 @@
 
 ## scripts/
 
-- `build.js` — build.js — 极简文章构建脚本 (~7040 tok)
+- `build.js` — build.js — 极简文章构建脚本 (~8703 tok)
 - `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/

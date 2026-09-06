@@ -900,3 +900,58 @@
 | 20:45 | Edited cn/网站文章/2026-08-30-bei-ai-yin-yong-de-zhan.md | 7→11 lines | ~146 |
 | 20:46 | Edited cn/网站文章/2026-08-30-geo-gai-jin-ti-an.md | 7→11 lines | ~174 |
 | 20:46 | Edited cn/网站文章/2026-08-30-geo-xuan-sai-dao.md | 7→11 lines | ~153 |
+| 20:50 | npm run build + python3 验证 3 篇 FAQ | 9/9 FAQ ✅OK 真实答案 | ~500 |
+| 20:52 | npm run deploy | 根仓库+site 双仓库推送成功 | ~300 |
+| 20:49 | Session end: 3 writes across 3 files (2026-08-30-bei-ai-yin-yong-de-zhan.md, 2026-08-30-geo-gai-jin-ti-an.md, 2026-08-30-geo-xuan-sai-dao.md) | 0 reads | ~507 tok |
+| 21:02 | Session end: 3 writes across 3 files (2026-08-30-bei-ai-yin-yong-de-zhan.md, 2026-08-30-geo-gai-jin-ti-an.md, 2026-08-30-geo-xuan-sai-dao.md) | 1 reads | ~1173 tok |
+| 21:10 | Session end: 3 writes across 3 files (2026-08-30-bei-ai-yin-yong-de-zhan.md, 2026-08-30-geo-gai-jin-ti-an.md, 2026-08-30-geo-xuan-sai-dao.md) | 1 reads | ~1173 tok |
+
+## Session: 2026-09-03 19:33
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:33 | Edited .gitignore | 2→3 lines | ~21 |
+
+## Session: 2026-09-03 19:36
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:37 | Created cn/学习/AutoGEO学习计划.md | — | ~2582 |
+| 19:38 | Session end: 1 writes across 1 files (AutoGEO学习计划.md) | 1 reads | ~3432 tok |
+| 19:40 | Edited cn/学习/AutoGEO学习计划.md | 5→5 lines | ~58 |
+| 19:41 | Session end: 2 writes across 1 files (AutoGEO学习计划.md) | 1 reads | ~3494 tok |
+| 19:46 | Created cn/学习/AutoGEO学习计划.md | — | ~3759 |
+| 20:15 | Rewrote cn/学习/AutoGEO学习计划.md (原理+操作并重) | full rewrite | ~6200 tok |
+| 19:46 | Session end: 3 writes across 1 files (AutoGEO学习计划.md) | 2 reads | ~9948 tok |
+| 19:50 | Created cn/学习/AutoGEO学习计划.md | — | ~4237 |
+
+## Session: 2026-09-03 19:51
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 19:52 | Rewrote cn/学习/AutoGEO学习计划.md (操作层=代码解读非动手跑) + cerebrum 偏好更新 | AutoGEO学习计划.md, .wolf/cerebrum.md | ~6500 tok |
+
+## Session: 2026-09-04 21:18
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-04 21:18
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-06 20:41
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-06 20:41
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:47 | Created ../../../../.claude/plans/calm-snacking-frog.md | — | ~555 |
+| 20:48 | Edited scripts/build.js | "AI 智能体应用与生成式引擎优化（GEO）研究者" → "豆包 GEO 专家 · 只做一个引擎" | ~14 |
+| 20:48 | Edited scripts/build.js | 6→7 lines | ~26 |
+| 20:50 | Edited scripts/build.js | modified renderHomepage() | ~4261 |
+| 20:54 | Session end: 4 writes across 2 files (calm-snacking-frog.md, build.js) | 6 reads | ~17651 tok |

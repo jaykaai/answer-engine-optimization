@@ -31,7 +31,7 @@ const ARTICLES_DIR = path.join(OUT_DIR, 'articles');
 const SITE_URL = 'https://www.jiyou.site';
 const AUTHOR_NAME = '纪优';
 const AUTHOR_URL = SITE_URL;
-const AUTHOR_DESCRIPTION = 'AI 智能体应用与生成式引擎优化（GEO）研究者';
+const AUTHOR_DESCRIPTION = '豆包 GEO 专家 · 只做一个引擎';
 
 // 实体 sameAs 锚点（跨平台身份验证，只填真实拥有的平台）
 const AUTHOR_SAMEAS = [
@@ -41,8 +41,9 @@ const AUTHOR_SAMEAS = [
 
 // 稳定知识领域（knowsAbout，不随文章 tag 变动）
 const AUTHOR_KNOWS_ABOUT = [
+  '豆包生成式引擎优化',
+  '豆包',
   '生成式引擎优化',
-  'AI 智能体应用',
   '结构化数据',
   '搜索引擎优化',
 ];
@@ -493,6 +494,7 @@ if (typeof mermaid !== 'undefined') {
 }
 
 // ── 生成首页 HTML ──
+// 豆包 GEO 专家门面首页：Hero + 差异化 + 方法论信任证据 + 文章库 + 轻量联系
 function renderHomepage(articles) {
   const grouped = {};
   for (const article of articles) {
@@ -504,21 +506,21 @@ function renderHomepage(articles) {
   const articleCount = articles.length;
   const topicCount = Object.keys(grouped).length;
 
-  const articlesJson = JSON.stringify(articles.map((a, i) => ({
-    index: i + 1,
-    title: a.title,
-    slug: a.slug,
-    topic: a.topic || '未分类',
-    date: a.date,
-  })));
+  // 方法论卡片：链接到真实存在的文章
+  const methodologyCards = [
+    { title: 'GEO 六维审计', desc: '把眼光变成能收钱的服务 — 六个维度系统审计一个站点', slug: 'geo-liu-wei-shen-ji', icon: '⊕' },
+    { title: 'GEO 五环链路', desc: '从发现你的站到引用你的话 — 整条流水线拆解', slug: 'geo-wu-huan-lian-lu', icon: '⟳' },
+    { title: '自足段落写作规格', desc: 'AI 引擎偏爱的内容结构 — 答案优先、自足可引', slug: 'zi-zu-duan-luo', icon: '¶' },
+    { title: '中国 AI 引擎适配', desc: '从国际方法到本土落地 — 认清中国 AI 引擎地形', slug: 'zhong-guo-ai-yin-qing-gua-pei', icon: '⌖' },
+  ];
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${AUTHOR_NAME} — GEO 研究站</title>
-  <meta name="description" content="AI 智能体应用与生成式引擎优化（GEO）研究">
+  <title>${AUTHOR_NAME} — 豆包 GEO 专家</title>
+  <meta name="description" content="${AUTHOR_DESCRIPTION}。帮商户让豆包推荐他们的产品。">
   <meta name="author" content="${AUTHOR_NAME}">
   <link rel="canonical" href="${SITE_URL}/">
   <link rel="stylesheet" href="style.css">
@@ -529,7 +531,7 @@ function renderHomepage(articles) {
     "@type": "WebSite",
     "name": "${AUTHOR_NAME}",
     "url": "${SITE_URL}/",
-    "description": "AI 智能体应用与生成式引擎优化（GEO）研究",
+    "description": "${AUTHOR_DESCRIPTION}。帮商户让豆包推荐他们的产品。",
     "author": { "@id": "${PERSON_ID}" },
     "publisher": { "@id": "${ORG_ID}" },
     "inLanguage": "zh-CN"
@@ -561,158 +563,470 @@ function renderHomepage(articles) {
   }
   </script>
   <style>
-    .home { display: flex; flex-direction: column; min-height: 100vh; padding-top: 3rem; transition: padding-top 0.4s ease; }
-    .home-header { flex-shrink: 0; margin-bottom: 2rem; transition: margin-bottom 0.4s ease, padding 0.4s ease; }
-    .home-header .name { transition: font-size 0.4s ease, letter-spacing 0.4s ease; }
-    .home-header .sub { transition: font-size 0.4s ease, opacity 0.4s ease; }
-    .chat-section { flex: 1; display: flex; flex-direction: column; min-height: 0; border-top: 1px solid #e5e5ea; padding-top: 1.5rem; transition: border-color 0.4s ease, padding-top 0.4s ease; }
+    /* ===== 首页：豆包 GEO 专家门面 ===== */
+    .home {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
-    /* 折叠 — 发消息后 header 收折为细顶栏 */
-    .home--chatting { padding-top: 1rem; }
-    .home--chatting .home-header { margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e5e5ea; display: flex; align-items: baseline; gap: 0.5rem; }
-    .home--chatting .home-header .name { font-size: 1rem; letter-spacing: 0; }
-    .home--chatting .home-header .sub { font-size: 0.8125rem; margin-top: 0; }
-    .home--chatting .chat-section { border-top-color: transparent; padding-top: 0.75rem; }
-    .chat-messages { flex: 1; overflow-y: auto; margin-bottom: 1rem; min-height: 50vh; }
-    .chat-messages .msg { padding: 0.75rem 1rem; border-radius: 12px; margin-bottom: 0.75rem; max-width: 85%; line-height: 1.6; font-size: 0.9375rem; }
-    .chat-messages .msg-user { background: #0071e3; color: #fff; margin-left: auto; }
-    .chat-messages .msg-agent { background: #f0f0f2; color: #1d1d1f; }
-    .chat-messages .msg-agent .result-item { display: block; padding: 0.5rem 0; border-bottom: 1px solid #e5e5ea; text-decoration: none; color: #1d1d1f; }
-    .chat-messages .msg-agent .result-item:last-child { border-bottom: none; }
-    .chat-messages .msg-agent .result-item:hover { opacity: 0.7; }
-    .chat-messages .msg-agent .result-item .r-num { display: inline-block; width: 20px; height: 20px; line-height: 20px; text-align: center; background: #0071e3; color: #fff; border-radius: 50%; font-size: 0.75rem; font-weight: 600; margin-right: 0.5rem; font-family: "SF Mono", "Menlo", monospace; }
-    .chat-messages .msg-agent .result-item .r-meta { font-size: 0.75rem; color: #86868b; margin-top: 0.125rem; }
-    .chat-messages .msg-agent .result-hint { margin-top: 0.5rem; font-size: 0.8125rem; color: #86868b; }
-    .chat-input-row { flex-shrink: 0; display: flex; align-items: center; gap: 0.5rem; background: #f5f5f7; border: 1px solid #e5e5ea; border-radius: 14px; padding: 0.5rem 0.75rem 0.5rem 1rem; }
-    .chat-input-row:focus-within { border-color: #0071e3; }
-    .chat-input-row input { flex: 1; border: none; background: transparent; font-size: 0.9375rem; font-family: inherit; color: #1d1d1f; outline: none; line-height: 1.5; padding: 0.25rem 0; }
-    .chat-input-row input::placeholder { color: #c7c7cc; }
-    .chat-input-row .send-btn { width: 32px; height: 32px; border-radius: 50%; border: none; background: #0071e3; color: #fff; font-size: 1rem; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-    .chat-input-row .send-btn:hover { opacity: 0.8; }
-    .home-footer { flex-shrink: 0; }
+    /* — Hero 首屏 — */
+    .hero {
+      padding: 5rem 0 4rem;
+      text-align: center;
+    }
+    .hero .name {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #1d1d1f;
+      line-height: 1;
+    }
+    .hero .tagline {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0071e3;
+      letter-spacing: -0.01em;
+    }
+    .hero .tagline .focus {
+      background: linear-gradient(135deg, #0071e3, #00b4d8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .value-prop {
+      margin-top: 1.5rem;
+      font-size: 1.0625rem;
+      color: #515154;
+      line-height: 1.6;
+    }
+    .hero .cta-row {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 980px;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .hero .btn-primary {
+      background: #0071e3;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0,113,227,0.3);
+    }
+    .hero .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(0,113,227,0.4);
+    }
+    .hero .btn-ghost {
+      background: transparent;
+      color: #0071e3;
+      border: 1px solid #d2d2d7;
+    }
+    .hero .btn-ghost:hover {
+      background: rgba(0,113,227,0.04);
+      border-color: #0071e3;
+    }
+
+    /* — 差异化区 — */
+    .diff {
+      padding: 3rem 0;
+    }
+    .diff .section-label {
+      font-family: "SF Mono","Menlo",monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #86868b;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .diff .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1d1d1f;
+      margin-bottom: 2rem;
+    }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .diff-card {
+      background: #fff;
+      border: 1px solid #e5e5ea;
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .diff-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0071e3, #00b4d8);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .diff-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .diff-card:hover::before { opacity: 1; }
+    .diff-card .dc-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .diff-card .dc-title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin-bottom: 0.5rem;
+    }
+    .diff-card .dc-desc {
+      font-size: 0.9375rem;
+      color: #515154;
+      line-height: 1.6;
+    }
+
+    /* — 方法论信任证据 — */
+    .method {
+      padding: 3rem 0;
+    }
+    .method .section-label {
+      font-family: "SF Mono","Menlo",monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #86868b;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .method .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1d1d1f;
+      margin-bottom: 0.5rem;
+    }
+    .method .section-sub {
+      font-size: 0.9375rem;
+      color: #86868b;
+      margin-bottom: 2rem;
+    }
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .method-card {
+      display: block;
+      text-decoration: none;
+      background: #fff;
+      border: 1px solid #e5e5ea;
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .method-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border-color: #0071e3;
+    }
+    .method-card .mc-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.625rem;
+    }
+    .method-card .mc-icon {
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.125rem;
+      background: rgba(0,113,227,0.08);
+      border-radius: 10px;
+    }
+    .method-card .mc-title {
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+    .method-card .mc-desc {
+      font-size: 0.9375rem;
+      color: #515154;
+      line-height: 1.55;
+    }
+    .method-card .mc-arrow {
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: #0071e3;
+      font-family: "SF Mono","Menlo",monospace;
+    }
+
+    /* 筹备中卡片 */
+    .method-card.coming {
+      border: 1.5px dashed #d2d2d7;
+      background: transparent;
+      cursor: default;
+    }
+    .method-card.coming:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: #d2d2d7;
+    }
+    .method-card.coming .mc-title { color: #86868b; }
+    .method-card.coming .mc-desc { color: #a1a1a6; }
+    .method-card.coming .mc-tag {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      font-family: "SF Mono","Menlo",monospace;
+      color: #86868b;
+      background: #f5f5f7;
+      border-radius: 4px;
+    }
+
+    /* — 文章库 — */
+    .kb {
+      padding: 3rem 0 2rem;
+      border-top: 1px solid #e5e5ea;
+    }
+    .kb .section-label {
+      font-family: "SF Mono","Menlo",monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #86868b;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .kb .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1d1d1f;
+      margin-bottom: 0.25rem;
+    }
+    .kb .section-sub {
+      font-size: 0.9375rem;
+      color: #86868b;
+      margin-bottom: 1.5rem;
+    }
+    .kb-topic { margin-bottom: 1.5rem; }
+    .kb-topic-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      font-family: "SF Mono","Menlo",monospace;
+    }
+    .kb-topic-header .arrow { color: #28c840; font-size: 0.875rem; }
+    .kb-topic-header .label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #86868b;
+      letter-spacing: 0.02em;
+    }
+    .kb-item {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e5ea;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .kb-item:last-of-type { border-bottom: none; }
+    .kb-item:hover { opacity: 0.6; }
+    .kb-item .q { color: #0071e3; font-size: 0.8125rem; flex-shrink: 0; font-family: "SF Mono","Menlo",monospace; }
+    .kb-item .title {
+      flex: 1;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #1d1d1f;
+      line-height: 1.4;
+    }
+    .kb-item .date {
+      font-size: 0.8125rem;
+      color: #c7c7cc;
+      flex-shrink: 0;
+    }
+
+    /* — 联系区 — */
+    .contact {
+      padding: 3rem 0 4rem;
+      border-top: 1px solid #e5e5ea;
+      text-align: center;
+    }
+    .contact .cta-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1d1d1f;
+      margin-bottom: 0.5rem;
+    }
+    .contact .cta-sub {
+      font-size: 0.9375rem;
+      color: #86868b;
+      margin-bottom: 1.75rem;
+    }
+    .contact .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.625rem 1.5rem;
+      border-radius: 980px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid #d2d2d7;
+      color: #1d1d1f;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .contact .contact-link:hover {
+      border-color: #0071e3;
+      background: rgba(0,113,227,0.04);
+    }
+
+    /* — 底部 — */
+    .home-footer {
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid #e5e5ea;
+      font-size: 0.8125rem;
+      color: #c7c7cc;
+      text-align: center;
+    }
+
+    /* — 响应式 — */
+    @media (max-width: 768px) {
+      .home { padding: 0 1.25rem; }
+      .hero { padding: 3.5rem 0 2.5rem; }
+      .hero .name { font-size: 2.5rem; }
+      .hero .tagline { font-size: 1.0625rem; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .method-grid { grid-template-columns: 1fr; }
+      .kb-item { flex-wrap: wrap; gap: 0.25rem; }
+      .kb-item .date { width: 100%; padding-left: 1.5rem; }
+    }
   </style>
 </head>
 <body>
 
 <div class="home">
 
-  <div class="home-header">
+  <!-- Hero 首屏 -->
+  <section class="hero">
     <div class="name">${AUTHOR_NAME}</div>
-    <div class="sub">GEO Research Agent · 生成式引擎优化</div>
-  </div>
-
-  <div class="chat-section expanded">
-    <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" value="列举所有文章列表" autofocus autocomplete="off">
-      <button class="send-btn" id="sendBtn">→</button>
+    <div class="tagline">豆包 GEO 专家 · <span class="focus">只做一个引擎</span></div>
+    <p class="value-prop">帮商户让豆包推荐他们的产品</p>
+    <div class="cta-row">
+      <a href="#method" class="btn btn-primary">了解我的方法论 →</a>
+      <a href="#contact" class="btn btn-ghost">联系我</a>
     </div>
-  </div>
+  </section>
 
-  <div class="home-footer">© 2026 ${AUTHOR_NAME} · GEO Research Agent</div>
+  <!-- 差异化区 -->
+  <section class="diff">
+    <div class="section-label">为什么是我</div>
+    <h2 class="section-title">机构做全网，我只做豆包</h2>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="dc-icon">🎯</div>
+        <div class="dc-title">只做一个引擎</div>
+        <div class="dc-desc">机构做全网 GEO，力量分散；我专注豆包，把一个引擎的优化做到最深。</div>
+      </div>
+      <div class="diff-card">
+        <div class="dc-icon">👤</div>
+        <div class="dc-title">个人专家</div>
+        <div class="dc-desc">没有机构的交付成本和层级损耗，你直接找到我，我直接对你的结果负责。</div>
+      </div>
+      <div class="diff-card">
+        <div class="dc-icon">🧭</div>
+        <div class="dc-title">实战方法论</div>
+        <div class="dc-desc">六维审计、五环链路、写作规格 — 不是空谈，每一套方法都有对应文章拆解。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 方法论信任证据 -->
+  <section class="method" id="method">
+    <div class="section-label">方法论体系</div>
+    <h2 class="section-title">我用来干活的方法</h2>
+    <div class="section-sub">已沉淀的 GEO 方法论，每篇都有完整拆解 · ${articleCount} 篇实战笔记持续更新</div>
+    <div class="method-grid">
+      ${methodologyCards.map(c => `
+      <a href="articles/${c.slug}.html" class="method-card">
+        <div class="mc-head">
+          <div class="mc-icon">${c.icon}</div>
+          <div class="mc-title">${c.title}</div>
+        </div>
+        <div class="mc-desc">${c.desc}</div>
+        <div class="mc-arrow">→ 阅读完整拆解</div>
+      </a>`).join('')}
+      <div class="method-card coming">
+        <div class="mc-head">
+          <div class="mc-icon" style="background:rgba(142,142,147,0.12);">📊</div>
+          <div class="mc-title">豆包实测案例</div>
+        </div>
+        <div class="mc-desc">真实站点在豆包中的引用追踪、对比实验、优化前后数据</div>
+        <span class="mc-tag">筹备中 · coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文章库 -->
+  <section class="kb">
+    <div class="section-label">知识库</div>
+    <h2 class="section-title">全部文章</h2>
+    <div class="section-sub">${articleCount} 篇 · 按 ${topicCount} 个话题分组</div>
+    ${Object.entries(grouped).map(([topic, items]) => `
+    <div class="kb-topic">
+      <div class="kb-topic-header">
+        <span class="arrow">❯</span>
+        <span class="label">${escapeHtml(topic)}</span>
+      </div>
+      ${items.map((a, i) => `
+      <a href="articles/${a.slug}.html" class="kb-item">
+        <span class="q">${String(i + 1).padStart(2, '0')}</span>
+        <span class="title">${escapeHtml(a.title)}</span>
+        <span class="date">${a.date}</span>
+      </a>`).join('')}
+    </div>`).join('')}
+  </section>
+
+  <!-- 联系区 -->
+  <section class="contact" id="contact">
+    <div class="cta-text">想让豆包推荐你的产品？</div>
+    <div class="cta-sub">找我聊聊 — 我会先看你的站，告诉你从哪里改起</div>
+    <div class="contact-links">
+      <a href="https://www.zhihu.com/people/yeah-98-35" class="contact-link" target="_blank" rel="noopener">知乎私信</a>
+      <a href="https://github.com/jaykaai" class="contact-link" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <div class="home-footer">© 2026 ${AUTHOR_NAME} · 豆包 GEO 专家 · 只做一个引擎</div>
+
 </div>
-
-<script>
-(function() {
-  var articles = ${articlesJson};
-  var input = document.getElementById('chatInput');
-  var sendBtn = document.getElementById('sendBtn');
-  var messages = document.getElementById('chatMessages');
-  var chatSection = document.querySelector('.chat-section');
-
-  function addMessage(html, type) {
-    var div = document.createElement('div');
-    div.className = 'msg msg-' + type;
-    div.innerHTML = html;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  }
-
-  function escapeHtml(str) {
-    var d = document.createElement('div');
-    d.textContent = str;
-    return d.innerHTML;
-  }
-
-  function searchArticles(query) {
-    if (!query.trim()) return;
-    var q = query.trim();
-    addMessage(escapeHtml(q), 'user');
-
-    var results = [];
-    var qLower = q.toLowerCase();
-    articles.forEach(function(a) {
-      if (a.title.toLowerCase().indexOf(qLower) !== -1 ||
-          a.topic.toLowerCase().indexOf(qLower) !== -1) {
-        results.push(a);
-      }
-    });
-
-    var html = '';
-    if (results.length === 0) {
-      html = '未找到与 "<strong>' + escapeHtml(q) + '</strong>" 相关的文章。<br>试试其他关键词，如 <strong>GEO</strong>、<strong>百度</strong>、<strong>结构化数据</strong>。';
-    } else {
-      html = '我找到了 <strong>' + results.length + ' 篇</strong> 与 "' + escapeHtml(q) + '" 相关的文章：<br><br>';
-      results.forEach(function(a) {
-        html += '<a href="articles/' + a.slug + '.html" class="result-item">' +
-          '<span class="r-num">' + a.index + '</span>' +
-          '<span class="r-title">' + escapeHtml(a.title) + '</span>' +
-          '<div class="r-meta">' + escapeHtml(a.topic) + ' · ' + a.date + '</div>' +
-          '</a>';
-      });
-      html += '<div class="result-hint">点击标题阅读文章，或输入新关键词继续搜索</div>';
-    }
-    addMessage(html, 'agent');
-  }
-
-  function send() {
-    var q = input.value.trim();
-    if (!q) return;
-    // 首次用户发消息 → header 收折
-    document.querySelector('.home').classList.add('home--chatting');
-    if (q === '列举所有文章列表') {
-      addMessage('列举所有文章列表', 'user');
-      listAllArticles();
-    } else {
-      searchArticles(q);
-    }
-    input.value = '';
-    input.focus();
-  }
-
-  // 页面加载时自动列出所有文章
-  function listAllArticles() {
-    var html = '知识库中有 <strong>' + articles.length + ' 篇文章</strong>，按话题分组：<br><br>';
-    var topics = {};
-    articles.forEach(function(a) {
-      if (!topics[a.topic]) topics[a.topic] = [];
-      topics[a.topic].push(a);
-    });
-    Object.keys(topics).forEach(function(topic) {
-      html += '<strong style="color:#0071e3;">❯ ' + escapeHtml(topic) + '</strong><br>';
-      topics[topic].forEach(function(a) {
-        html += '<a href="articles/' + a.slug + '.html" class="result-item">' +
-          '<span class="r-num">' + a.index + '</span>' +
-          '<span class="r-title">' + escapeHtml(a.title) + '</span>' +
-          '<div class="r-meta">' + a.date + '</div>' +
-          '</a>';
-      });
-    });
-    html += '<div class="result-hint">在下方输入关键词搜索文章，例如 <strong>GEO</strong>、<strong>百度</strong>、<strong>结构化数据</strong></div>';
-    addMessage(html, 'agent');
-  }
-
-  input.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') { e.preventDefault(); send(); }
-  });
-  sendBtn.addEventListener('click', send);
-  document.addEventListener('click', function() { input.focus(); });
-  input.focus();
-
-  // 自动列出所有文章
-  listAllArticles();
-})();
-</script>
 
 </body>
 </html>`;
