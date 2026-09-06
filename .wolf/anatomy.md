@@ -1,11 +1,11 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-09-06T12:50:41.605Z
+> Auto-maintained by OpenWolf. Last scanned: 2026-09-06T13:06:45.640Z
 > Files: 52 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../.claude/plans/
 
-- `calm-snacking-frog.md` — 首页重构：从"通用 GEO 研究站"到"豆包 GEO 专家门面" (~520 tok)
+- `calm-snacking-frog.md` — 首页 3D 立体化：卡片光影厚度 + hover 微旋转 (~1023 tok)
 - `mighty-nibbling-rocket.md` — 计划：写完文章后一键 build + commit + push (~540 tok)
 
 ## ./
@@ -77,7 +77,7 @@
 
 ## scripts/
 
-- `build.js` — build.js — 极简文章构建脚本 (~8703 tok)
+- `build.js` — build.js — 极简文章构建脚本 (~9002 tok)
 - `deploy.js` — deploy.js — 一键部署脚本（build → 根仓库 commit/push → site 仓库 commit/push，自动生成 commit 消息） (~781 tok)
 
 ## site/

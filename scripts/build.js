@@ -622,11 +622,15 @@ function renderHomepage(articles) {
     .hero .btn-primary {
       background: #0071e3;
       color: #fff;
-      box-shadow: 0 4px 14px rgba(0,113,227,0.3);
+      box-shadow:
+        0 4px 14px rgba(0,113,227,0.3),
+        0 1px 0 rgba(0,90,180,0.8);
     }
     .hero .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(0,113,227,0.4);
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 24px rgba(0,113,227,0.4),
+        0 1px 0 rgba(0,90,180,0.8);
     }
     .hero .btn-ghost {
       background: transparent;
@@ -662,15 +666,22 @@ function renderHomepage(articles) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
+      perspective: 1000px;
     }
     .diff-card {
       background: #fff;
       border: 1px solid #e5e5ea;
       border-radius: 16px;
       padding: 1.75rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
       position: relative;
       overflow: hidden;
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.04),
+        0 4px 8px rgba(0,0,0,0.04),
+        0 12px 24px rgba(0,0,0,0.06),
+        0 24px 48px rgba(0,0,0,0.04);
     }
     .diff-card::before {
       content: "";
@@ -679,11 +690,15 @@ function renderHomepage(articles) {
       height: 3px;
       background: linear-gradient(90deg, #0071e3, #00b4d8);
       opacity: 0;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.25s ease;
     }
     .diff-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transform: translateY(-6px) rotateX(2deg) rotateY(-2deg);
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.06),
+        0 8px 16px rgba(0,0,0,0.08),
+        0 20px 40px rgba(0,0,0,0.10),
+        0 40px 80px rgba(0,0,0,0.06);
     }
     .diff-card:hover::before { opacity: 1; }
     .diff-card .dc-icon {
@@ -732,6 +747,7 @@ function renderHomepage(articles) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
+      perspective: 1000px;
     }
     .method-card {
       display: block;
@@ -740,11 +756,23 @@ function renderHomepage(articles) {
       border: 1px solid #e5e5ea;
       border-radius: 14px;
       padding: 1.5rem;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.03),
+        0 3px 6px rgba(0,0,0,0.04),
+        0 8px 16px rgba(0,0,0,0.05),
+        0 16px 32px rgba(0,0,0,0.03);
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.25s cubic-bezier(0.4,0,0.2,1),
+                  border-color 0.15s ease;
     }
     .method-card:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transform: translateY(-4px) rotateX(1.5deg) rotateY(-1.5deg);
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.05),
+        0 6px 12px rgba(0,0,0,0.07),
+        0 14px 28px rgba(0,0,0,0.08),
+        0 28px 56px rgba(0,0,0,0.05),
+        0 0 0 1px rgba(0,113,227,0.1);
       border-color: #0071e3;
     }
     .method-card .mc-head {
@@ -927,6 +955,9 @@ function renderHomepage(articles) {
       .method-grid { grid-template-columns: 1fr; }
       .kb-item { flex-wrap: wrap; gap: 0.25rem; }
       .kb-item .date { width: 100%; padding-left: 1.5rem; }
+      .diff-card:hover, .method-card:hover {
+        transform: translateY(-2px);
+      }
     }
   </style>
 </head>
