@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-09-08T13:20:26.669Z
-> Files: 61 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-09-08T13:54:35.026Z
+> Files: 65 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../../../../tmp/dd/new/
 
@@ -34,6 +34,13 @@
 ## .claude/rules/
 
 - `openwolf.md` (~313 tok)
+
+## .claude/scratchpad/
+
+- `clean_swap.py` (~1143 tok)
+- `png_swap.py` (~1194 tok)
+- `swap_png.py` (~875 tok)
+- `sync_export.py` (~1113 tok)
 
 ## cn/
 
@@ -102,7 +109,7 @@
 - `llms.txt` — 纪优 GEO 研究 (~153 tok)
 - `robots.txt` — robots.txt — 全部爬虫放行，包括 AI 引擎爬虫 (~99 tok)
 - `sitemap.xml` (~216 tok)
-- `style.css` — Styles: 85 rules (~2930 tok)
+- `style.css` — Styles: 85 rules (~2934 tok)
 
 ## site/ (独立 GitHub Pages 仓库 jaykaai.github.io，不在本仓库跟踪)
 

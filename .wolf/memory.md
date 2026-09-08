@@ -1013,3 +1013,39 @@
 | 21:20 | Edited ../../../../../../tmp/dd/new/geo-wu-huan-lian-lu.html | 4→4 lines | ~77 |
 | 21:35 | 用 diagram-design 技能重绘 site/articles 下 8 篇文章的 9 张内联 SVG（class="entity-diagram"）：统一 Apple 品牌色板、单一 accent 焦点节点、mono 编号眉标、删冗余连线；headless Chrome 渲染 9 张 PNG 逐张目检，修掉 1 处蓝字对比度不足(#0071e3 在淡蓝底 ~3.4:1)、1 处文字触边(⑤引用卡片)、1 处误改 CSS font-family 引号 | articles/*.html (8 files, -417/+312) | 仅 SVG 块变更，正文/nav/script 逐字节一致；备份 /tmp/dd/bak/ | ~2600 |
 | 21:23 | Session end: 12 writes across 9 files (llms-txt.html, nei-rong-xin-xian-du.html, bei-ai-yin-yong-de-zhan.html, geo-liu-wei-shen-ji.html, geo-wu-huan-lian-lu.html) | 19 reads | ~6898 tok |
+| 21:33 | Created .claude/scratchpad/swap_png.py | — | ~838 |
+| 21:34 | Edited .claude/scratchpad/swap_png.py | "<link[^>]*stylesheet[^>]*" → "<svg[^>]*?\bviewBox=" | ~14 |
+| 21:36 | Created .claude/scratchpad/swap_png.py | — | ~875 |
+| 21:39 | Created .claude/scratchpad/sync_export.py | — | ~1113 |
+| 21:41 | Created .claude/scratchpad/png_swap.py | — | ~1148 |
+
+## Session: 2026-09-08 21:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-08 21:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:42 | Created .claude/scratchpad/png_swap.py | — | ~1194 |
+
+## Session: 2026-09-08 21:42
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-08 引用率检测功能原理研究
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 22:xx | 研究 7 个开源 GEO 项目的"引用率检测"实现原理（geolook/getcito/geo-optimizer-skill/AutoGEO/eGEOagents/geo-seo-claude） | .wolf/cerebrum.md | 三条采集通道+四条指标公式+七条判定纪律+三套范式区分，全部定位到具体文件行号 | ~15000 |
+| 21:52 | Created .claude/scratchpad/clean_swap.py | — | ~1143 |
+
+## Session: 2026-09-08 21:53
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 21:54 | Edited site/style.css | 20→20 lines | ~107 |
+| 22:15 | 把 site/articles 下 8 篇文章的 9 张内联 SVG 换成 <img class="diagram"> 引用 PNG（导出到 site/assets/diagrams/，2x 高清，按 viewBox 精确裁切无白边）；style.css 新增 .article-body img.diagram 规则复用原 svg.entity-diagram 版式 | articles/*.html (8), style.css, assets/diagrams/*.png (9) | SVG→img 全部替换成功；正文其余内容未动 | ~2400 |
+| 21:56 | Session end: 1 writes across 1 files (style.css) | 1 reads | ~3037 tok |
