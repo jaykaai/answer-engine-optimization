@@ -1,7 +1,19 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-09-06T13:06:45.640Z
-> Files: 52 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-09-08T13:20:26.669Z
+> Files: 61 tracked | Anatomy hits: 0 | Misses: 0
+
+## ../../../../../../tmp/dd/new/
+
+- `ai-pa-chong-guan-li.html` (~783 tok)
+- `bei-ai-yin-yong-de-zhan.html` (~590 tok)
+- `geo-liu-wei-shen-ji.html` (~630 tok)
+- `geo-wu-huan-lian-lu.html` (~833 tok)
+- `llms-txt.html` (~583 tok)
+- `nei-rong-xin-xian-du.html` (~592 tok)
+- `shi-ti-tu.html` (~887 tok)
+- `wei-shen-me-ai-pian-ai-shi-shi-1.html` (~758 tok)
+- `wei-shen-me-ai-pian-ai-shi-shi-2.html` (~606 tok)
 
 ## ../../../../.claude/plans/
 

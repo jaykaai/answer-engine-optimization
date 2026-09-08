@@ -973,3 +973,43 @@
 | 21:07 | designqc: captured 2 screenshots (27KB, ~5000 tok) | / | ready for eval | ~0 |
 | 21:45 | 首页3D立体化——diff-card/method-card多层光影+hover微旋转，btn-primary底部厚度线，移动端去旋转 | scripts/build.js | 构建成功，CSS已写入site/index.html | ~8951 |
 | 21:08 | Session end: 2 writes across 1 files (build.js) | 0 reads | ~245 tok |
+
+## Session: 2026-09-06 21:12
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-08 20:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-08 20:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-08 20:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+
+## Session: 2026-09-08 20:43
+
+| Time | Action | File(s) | Outcome | ~Tokens |
+|------|--------|---------|---------|--------|
+| 20:52 | 全局安装 diagram-design@diagram-design 插件 v2.6.17（/plugin 不可用，手动模拟 CLI 安装流程：clone marketplace + 干净 cache 副本 + 注册 4 个 registry 文件 + enabledPlugins 启用） | ~/.claude/settings.json, ~/.claude.json, ~/.claude/plugins/{installed_plugins,known_marketplaces}.json | 已启用，需重启会话生效 | ~2200 |
+| 21:02 | Created ../../../../../../tmp/dd/new/llms-txt.html | — | ~583 |
+| 21:03 | Created ../../../../../../tmp/dd/new/nei-rong-xin-xian-du.html | — | ~592 |
+| 21:03 | Created ../../../../../../tmp/dd/new/bei-ai-yin-yong-de-zhan.html | — | ~591 |
+| 21:04 | Created ../../../../../../tmp/dd/new/geo-liu-wei-shen-ji.html | — | ~630 |
+| 21:05 | Created ../../../../../../tmp/dd/new/geo-wu-huan-lian-lu.html | — | ~849 |
+| 21:05 | Edited ../../../../../../tmp/dd/new/geo-wu-huan-lian-lu.html | 2→1 lines | ~15 |
+| 21:10 | Created ../../../../../../tmp/dd/new/wei-shen-me-ai-pian-ai-shi-shi-1.html | — | ~758 |
+| 21:11 | Created ../../../../../../tmp/dd/new/wei-shen-me-ai-pian-ai-shi-shi-2.html | — | ~606 |
+| 21:11 | Created ../../../../../../tmp/dd/new/ai-pa-chong-guan-li.html | — | ~783 |
+| 21:12 | Created ../../../../../../tmp/dd/new/shi-ti-tu.html | — | ~887 |
+| 21:18 | Edited ../../../../../../tmp/dd/new/bei-ai-yin-yong-de-zhan.html | 5→5 lines | ~67 |
+| 21:20 | Edited ../../../../../../tmp/dd/new/geo-wu-huan-lian-lu.html | 4→4 lines | ~77 |
+| 21:35 | 用 diagram-design 技能重绘 site/articles 下 8 篇文章的 9 张内联 SVG（class="entity-diagram"）：统一 Apple 品牌色板、单一 accent 焦点节点、mono 编号眉标、删冗余连线；headless Chrome 渲染 9 张 PNG 逐张目检，修掉 1 处蓝字对比度不足(#0071e3 在淡蓝底 ~3.4:1)、1 处文字触边(⑤引用卡片)、1 处误改 CSS font-family 引号 | articles/*.html (8 files, -417/+312) | 仅 SVG 块变更，正文/nav/script 逐字节一致；备份 /tmp/dd/bak/ | ~2600 |
+| 21:23 | Session end: 12 writes across 9 files (llms-txt.html, nei-rong-xin-xian-du.html, bei-ai-yin-yong-de-zhan.html, geo-liu-wei-shen-ji.html, geo-wu-huan-lian-lu.html) | 19 reads | ~6898 tok |
